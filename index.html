@@ -214,6 +214,54 @@ p{margin:0 0 1em}
 .xcap p{margin:0;max-width:40em}
 .xtoggle{font-size:15px;padding:9px 16px}
 
+
+/* schémas de principe */
+.sfig{margin:0;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(220px,1fr);gap:8px 32px;align-items:center}
+@media (max-width:720px){.sfig{grid-template-columns:1fr}}
+.sch{width:100%;height:auto;overflow:visible}
+.sch .ln{fill:none;stroke:var(--ink);stroke-width:1.6;stroke-linejoin:round;stroke-linecap:round}
+.sch .ln.thick{stroke-width:3}
+.sch .ln.hoop{stroke-width:3.4}
+.sch .ln.side{stroke-width:2.4}
+.sch .fl{fill:var(--paper);stroke:var(--ink);stroke-width:1.5;stroke-linejoin:round}
+.sch .fl2{fill:var(--tile);stroke:var(--ink);stroke-width:1.2;stroke-linejoin:round}
+.project.alt .sch .fl2{fill:#EAEAEE}
+.sch .hl{fill:var(--blue-soft);stroke:var(--blue);stroke-width:1.8}
+.sch .hls{fill:none;stroke:var(--blue);stroke-width:1.8}
+.sch .thin{fill:none;stroke:var(--ink-2);stroke-width:1}
+.sch .dash{stroke-dasharray:5 5}
+.sch .dot{fill:var(--ink)}
+.sch .bub{fill:var(--paper)}
+.sch .arrow{fill:var(--ink-2)}
+.sch .arrow.hlf{fill:var(--blue)}
+.sch .tube-o{fill:none;stroke:var(--ink);stroke-width:7;stroke-linejoin:round;stroke-linecap:round}
+.sch .tube-i{fill:none;stroke:var(--paper);stroke-width:4;stroke-linejoin:round;stroke-linecap:round}
+.sch .tube-o.big{stroke-width:22;stroke-linecap:butt}
+.sch .tube-i.big{stroke-width:16;stroke-linecap:butt}
+.sch .t{font:600 15px var(--sans);fill:var(--ink-2)}
+.sch .mk circle{fill:var(--paper);stroke:var(--ink);stroke-width:1.3}
+.sch .mk text{font:600 14px var(--sans);text-anchor:middle;fill:var(--ink)}
+.legend{list-style:none;margin:0;padding:0;display:grid;gap:4px;font-size:15.5px;line-height:1.4}
+.legend li{display:grid;grid-template-columns:28px 1fr;gap:12px;align-items:start;padding:6px 0}
+.legend b{display:grid;place-items:center;width:26px;height:26px;border:1.3px solid var(--ink);border-radius:50%;font-size:12.5px;font-weight:600}
+/* tuiles : schémas et cadre */
+.tile svg{margin-top:auto;width:100%;height:clamp(220px,26vw,300px);padding:0 24px 24px}
+.tile img.frame{object-fit:contain;mix-blend-mode:normal;padding:0 24px 24px;filter:drop-shadow(0 14px 24px rgba(0,40,90,.18))}
+.tile.wide{grid-column:1/-1}
+.tile.wide a{flex-direction:row;align-items:center;justify-content:center;gap:clamp(24px,8vw,120px)}
+.tile-stat{display:flex;flex-direction:column;align-items:center;gap:6px;padding:36px 24px;color:var(--ink-2);font-size:16px;max-width:18em}
+.tile-stat .big{white-space:nowrap;font-size:clamp(52px,7vw,84px);font-weight:700;letter-spacing:-.04em;line-height:1;color:var(--blue)}
+@media (max-width:760px){.tile.wide a{flex-direction:column;gap:0}.tile-stat{padding-top:0}}
+/* KBE : déroulement */
+.flow{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;counter-reset:none}
+@media (max-width:820px){.flow{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.flow{grid-template-columns:1fr}}
+.flow li{position:relative;background:var(--tile);border-radius:18px;padding:22px 20px;display:flex;flex-direction:column;gap:6px}
+.project.alt .flow li{background:var(--paper)}
+.flow b{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--blue-btn);color:#fff;font-size:14px;font-weight:600;margin-bottom:6px}
+.flow .ft{font-size:19px;font-weight:700;letter-spacing:-.015em}
+.flow .fd{font-size:15px;color:var(--ink-2);line-height:1.45}
+
 /* autres projets */
 .others-band{padding-block:clamp(72px,9vw,112px)}
 .others{list-style:none;margin:36px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
@@ -390,15 +438,52 @@ dialog p{font-size:15px;color:#F5F5F7;margin:12px 0 0;text-align:center}
     <div class="wrap">
       <div class="sec-head">
         <h2 class="h2" id="projets-t">Projets</h2>
-        <p class="intro-p">Six projets en entreprise, en association et à l’école, avec ce que j’ai fait moi-même.</p>
+        <p class="intro-p">Sept projets en entreprise, en association, à l’école et en indépendant, avec ce que j’ai fait moi-même.</p>
       </div>
       <ul class="tiles">
-        <li class="tile"><a href="#expleo"><span class="tile-txt"><span class="tile-t">Quille amortie de télécabine</span><span class="tile-c">Stage chez Expleo pour Sigmacabin, 2025</span><span class="more">Voir le projet</span></span><img class="cover" src="assets/img/quille-dessous.jpg" alt="" loading="lazy"></a></li>
+        <li class="tile"><a href="#expleo"><span class="tile-txt"><span class="tile-t">Quille amortie de télécabine</span><span class="tile-c">Stage chez Expleo pour Sigmacabin, 2025</span><span class="more">Voir le projet</span></span><img class="frame" src="assets/img/quille-cabine.jpg" alt="" loading="lazy"></a></li>
         <li class="tile"><a href="#efst"><span class="tile-txt"><span class="tile-t">Châssis tubulaire paramétré</span><span class="tile-c">Formula Student ECAM, depuis 2024</span><span class="more">Voir le projet</span></span><img src="assets/img/efst-chassis.jpg" alt="" loading="lazy"></a></li>
         <li class="tile"><a href="#auraflow"><span class="tile-txt"><span class="tile-t">Le plein sans sortir de sa voiture</span><span class="tile-c">Projet Léonard AuraFlow, 2026</span><span class="more">Voir le projet</span></span><img src="assets/img/auraflow-systeme.jpg" alt="" loading="lazy"></a></li>
-        <li class="tile"><a href="#gem-gcr"><span class="tile-txt"><span class="tile-t">Habitat de ballon stratosphérique</span><span class="tile-c">PoliSpace, Milan, 2026</span><span class="more">Voir le projet</span></span><img class="cover" src="assets/img/gem-prototypes-petg.jpg" alt="" loading="lazy"></a></li>
-        <li class="tile"><a href="#mat-rotor"><span class="tile-txt"><span class="tile-t">Mât rotor d’hélicoptère</span><span class="tile-c">Politecnico di Milano, 2026</span><span class="more">Voir le projet</span></span><img src="assets/img/milan-mat-vonmises.jpg" alt="" loading="lazy"></a></li>
+        <li class="tile"><a href="#gem-gcr"><span class="tile-txt"><span class="tile-t">Habitat de ballon stratosphérique</span><span class="tile-c">PoliSpace, Milan, 2026</span><span class="more">Voir le projet</span></span><svg class="xview" viewBox="0 0 480 680" aria-hidden="true" focusable="false">
+    <g class="part" data-part="abs" style="--dy:0px">
+    <path class="fill" d="M128.0,468.0 L128.0,592.0 A92,27.6 0 0 0 312.0,592.0 L312.0,468.0 A92,27.6 0 0 0 128.0,468.0 Z" />
+    <path class="fill top" fill-rule="evenodd" d="M128.0,468.0 A92,27.6 0 1 0 312.0,468.0 A92,27.6 0 1 0 128.0,468.0 Z M136.0,468.0 A84,25.2 0 1 0 304.0,468.0 A84,25.2 0 1 0 136.0,468.0 Z" />
+    <path class="thin" d="M169.4,490.9 L169.4,614.9 M291.8,485.4 L291.8,609.4" />
+    <g class="leader"><path d="M312.0,523.8 L440,523.8" /><circle cx="454" cy="523.8" r="17" /><text x="454" y="529.8">4</text></g>
+    <g class="leader dim"><path d="M128,598 L128,661.6 M312,598 L312,661.6 M130,653.6 L310,653.6" /><path class="arrow" d="M128,653.6 l9,-3.5 l0,7 Z M312,653.6 l-9,-3.5 l0,7 Z" /><text x="220" y="645.6">Ø 200</text></g>
+    <g class="leader dim"><path d="M122,468 L90,468 M122,592 L90,592 M98,470 L98,590" /><path class="arrow" d="M98,468 l-3.5,9 l7,0 Z M98,592 l-3.5,-9 l7,0 Z" /><text x="88" y="530.0" transform="rotate(-90 88 530.0)">200</text></g>
+    </g>
+    <g class="part" data-part="xps" style="--dy:145px">
+    <path class="fill" d="M110.0,315.0 L110.0,447.0 A110,33.0 0 0 0 330.0,447.0 L330.0,315.0 A110,33.0 0 0 0 110.0,315.0 Z" />
+    <path class="fill top" fill-rule="evenodd" d="M110.0,315.0 A110,33.0 0 1 0 330.0,315.0 A110,33.0 0 1 0 110.0,315.0 Z M125.0,315.0 A95,28.5 0 1 0 315.0,315.0 A95,28.5 0 1 0 125.0,315.0 Z" />
+    <path class="thin" d="M159.5,342.4 L159.5,474.4 M305.8,335.8 L305.8,467.8" />
+    <g class="leader"><path d="M330.0,374.4 L440,374.4" /><circle cx="454" cy="374.4" r="17" /><text x="454" y="380.4">3</text></g>
+    </g>
+    <g class="part" data-part="alu" style="--dy:302px">
+    <path class="fill" d="M102.0,150.0 L102.0,290.0 A118,35.4 0 0 0 338.0,290.0 L338.0,150.0 A118,35.4 0 0 0 102.0,150.0 Z" />
+    <path class="fill top" fill-rule="evenodd" d="M102.0,150.0 A118,35.4 0 1 0 338.0,150.0 A118,35.4 0 1 0 102.0,150.0 Z M108.0,150.0 A112,33.6 0 1 0 332.0,150.0 A112,33.6 0 1 0 108.0,150.0 Z" />
+    <path class="thin" d="M155.1,179.4 L155.1,319.4 M312.0,172.3 L312.0,312.3" />
+    <g class="leader"><path d="M338.0,213.0 L440,213.0" /><circle cx="454" cy="213.0" r="17" /><text x="454" y="219.0">2</text></g>
+    </g>
+    <g class="part" data-part="lid" style="--dy:398px">
+    <path class="fill inner" d="M118.5,82.0 A101.5,30.4 0 1 0 321.5,82.0 A101.5,30.4 0 1 0 118.5,82.0 Z" />
+    <path class="seal inner" d="M107.9,68.0 A112.1,33.6 0 1 0 332.1,68.0 A112.1,33.6 0 1 0 107.9,68.0 Z" />
+    <path class="fill" d="M102.0,40.0 L102.0,54.0 A118,35.4 0 0 0 338.0,54.0 L338.0,40.0 A118,35.4 0 0 0 102.0,40.0 Z" />
+    <path class="fill top" d="M102.0,40.0 A118,35.4 0 1 0 338.0,40.0 A118,35.4 0 1 0 102.0,40.0 Z" />
+    <ellipse class="bolt" cx="326.2" cy="40.0" rx="5" ry="2" />
+    <ellipse class="bolt" cx="295.1" cy="62.5" rx="5" ry="2" />
+    <ellipse class="bolt" cx="220.0" cy="71.9" rx="5" ry="2" />
+    <ellipse class="bolt" cx="144.9" cy="62.5" rx="5" ry="2" />
+    <ellipse class="bolt" cx="113.8" cy="40.0" rx="5" ry="2" />
+    <ellipse class="bolt" cx="144.9" cy="17.5" rx="5" ry="2" />
+    <ellipse class="bolt" cx="220.0" cy="8.1" rx="5" ry="2" />
+    <ellipse class="bolt" cx="295.1" cy="17.5" rx="5" ry="2" />
+    <g class="leader"><path d="M338.0,48.0 L440,48.0" /><circle cx="454" cy="48.0" r="17" /><text x="454" y="54.0">1</text></g>
+    </g>
+    </svg></a></li>
+        <li class="tile"><a href="#mat-rotor"><span class="tile-txt"><span class="tile-t">Mât rotor d’hélicoptère</span><span class="tile-c">Politecnico di Milano, 2026</span><span class="more">Voir le projet</span></span><svg class="sch" viewBox="0 0 760 290" aria-hidden="true" focusable="false"><path class="fl" d="M70,200 C70,150 120,130 180,128 L300,128 C330,128 345,150 345,175 L345,205 C345,225 320,232 290,232 L150,232 C100,232 70,225 70,200 Z"/><path class="fl2" d="M88,192 C92,162 120,146 160,143 L160,192 Z"/><path class="fl" d="M340,162 L520,171 L520,183 L340,200 Z"/><path class="fl" d="M503,172 L524,122 L540,122 L533,178 Z"/><circle class="thin" cx="535" cy="140" r="22"/><path class="ln" d="M120,262 L312,262 M112,262 Q98,262 98,252 M150,232 L145,262 M282,232 L287,262"/><rect class="hl" x="231" y="96" width="12" height="32" rx="2"/><ellipse class="fl" cx="237" cy="95" rx="15" ry="5"/><path class="ln thick" d="M58,90 L416,97"/><circle class="hls dash" cx="237" cy="112" r="22"/><path class="hls" d="M259,108 L569,101"/><clipPath id="clip-heli-tile"><circle cx="650" cy="105" r="80"/></clipPath><circle cx="650" cy="105" r="80" fill="#fff"/><image href="assets/img/milan-mat-zoom.jpg" x="570" y="25" width="160" height="160" clip-path="url(#clip-heli-tile)" preserveAspectRatio="xMidYMid slice"/><circle class="hls" cx="650" cy="105" r="80"/><g class="mk"><circle cx="192" cy="116" r="13"/><text x="192" y="121">1</text></g><g class="mk"><circle cx="712" cy="182" r="13"/><text x="712" y="187">2</text></g></svg></a></li>
         <li class="tile"><a href="#fradem"><span class="tile-txt"><span class="tile-t">Trois ouvrages en acier</span><span class="tile-c">Stage chez Fradem, Domène, 2022</span><span class="more">Voir le projet</span></span><img class="cover" src="assets/img/brh-installation.jpg" alt="" loading="lazy"></a></li>
+        <li class="tile wide"><a href="#kbe"><span class="tile-txt"><span class="tile-t">KBE, ma micro-entreprise</span><span class="tile-c">Bureau d’études indépendant, depuis 2022</span><span class="more">Voir le projet</span></span><span class="tile-stat"><span class="big">550+ h</span><span>de conception mécanique pour un client industriel</span></span></a></li>
       </ul>
     </div>
 
@@ -413,6 +498,11 @@ dialog p{font-size:15px;color:#F5F5F7;margin:12px 0 0;text-align:center}
               <dt>Période</dt><dd>Juin – septembre 2025</dd>
             </dl>
           </header>
+          <figure class="sfig xpanel">
+            <svg class="sch" viewBox="0 0 640 360" role="img" aria-labelledby="sch-cabine-t"><title id="sch-cabine-t">Schéma de principe : cabine de télécabine avec sa quille, et vue de détail sur la fixation par serrage, le silentbloc et le jeu de 0,2 mm</title><path class="ln" d="M20,30 L620,22"/><rect class="fl2" x="180" y="17" width="40" height="18" rx="3"/><path class="ln thick" d="M200,35 L200,92"/><rect class="fl" x="110" y="92" width="220" height="170" rx="26"/><path class="fl2" d="M120,96 Q220,74 320,96 Z"/><rect class="fl2" x="128" y="112" width="184" height="66" rx="10"/><path class="thin" d="M220,112 L220,252 M118,244 L322,244"/><path class="tube-o" d="M142,263 L205,302 L235,302 L298,263"/><path class="tube-i" d="M142,263 L205,302 L235,302 L298,263"/><rect class="fl2" x="132" y="254" width="20" height="14" rx="2"/><rect class="fl2" x="288" y="254" width="20" height="14" rx="2"/><circle class="hl" cx="142" cy="263" r="5"/><circle class="hl" cx="298" cy="263" r="5"/><circle class="hls dash" cx="298" cy="263" r="18"/><path class="hls" d="M315,257 L412,222"/><clipPath id="clip-cabine"><circle cx="510" cy="200" r="99"/></clipPath><circle cx="510" cy="200" r="100" class="bub"/><g clip-path="url(#clip-cabine)"><rect class="fl2" x="405" y="130" width="210" height="28"/><path class="thin" d="M405,158 l14,-28 M421,158 l14,-28 M437,158 l14,-28 M453,158 l14,-28 M469,158 l14,-28 M485,158 l14,-28 M501,158 l14,-28 M517,158 l14,-28 M533,158 l14,-28 M549,158 l14,-28 M565,158 l14,-28 M581,158 l14,-28 M597,158 l14,-28 M613,158 l14,-28 "/><path class="tube-o big" d="M510,236 L425,305"/><path class="tube-i big" d="M510,236 L425,305"/><rect class="fl" x="455" y="158" width="110" height="16"/><path class="ln thick" d="M472,122 L472,182 M548,122 L548,182"/><rect class="fl" x="478" y="174" width="10" height="78"/><rect class="fl" x="534" y="174" width="10" height="78"/><circle class="hl" cx="510" cy="236" r="20"/><circle cx="510" cy="236" r="6" class="dot"/><path class="thin" d="M530,244 L530,272 M534,252 L534,272 M512,266 L528,266 M552,266 L536,266"/><path class="arrow" d="M530.0,266.0 L523.0,269.1 L523.0,262.9 Z"/><path class="arrow" d="M534.0,266.0 L541.0,262.9 L541.0,269.1 Z"/><text class="t" x="552" y="271">0,2</text></g><circle class="hls" cx="510" cy="200" r="100"/><g class="mk"><circle cx="220" cy="326" r="13"/><text x="220" y="331">1</text></g><g class="mk"><circle cx="456" cy="214" r="13"/><text x="456" y="219">2</text></g><g class="mk"><circle cx="588" cy="186" r="13"/><text x="588" y="191">3</text></g><g class="mk"><circle cx="592" cy="248" r="13"/><text x="592" y="253">4</text></g></svg>
+            <ol class="legend"><li><b>1</b><span>Quille : tube principal en inox 304L, le reste en S355J0</span></li><li><b>2</b><span>Silentbloc déjà en service, réutilisé</span></li><li><b>3</b><span>Fixation par serrage : la cabine, déjà installée, ne pouvait pas être percée</span></li><li><b>4</b><span>Jeu fonctionnel minimal de 0,2 mm, validé par la chaîne de cotes</span></li></ol>
+            <figcaption class="xcap"><p>Schéma de principe, jeu agrandi pour la lisibilité. Les modèles réels sont dans la galerie.</p></figcaption>
+          </figure>
           <div class="gal" data-gal>
             <figure class="w6"><button type="button"><img class="cover" src="assets/img/quille-dessous.jpg" alt="Quille montée sous le plancher de la cabine" loading="lazy"></button><figcaption>Quille sous le plancher</figcaption></figure>
             <figure><button type="button"><img class="cover" src="assets/img/quille-3d.jpg" alt="Fixation de la quille et silentbloc en 3D" loading="lazy"></button><figcaption>Fixation et silentbloc</figcaption></figure>
@@ -451,6 +541,11 @@ dialog p{font-size:15px;color:#F5F5F7;margin:12px 0 0;text-align:center}
               <dt>Période</dt><dd>Depuis 2024</dd>
             </dl>
           </header>
+          <figure class="sfig xpanel">
+            <svg class="sch" viewBox="0 0 640 320" role="img" aria-labelledby="sch-chassis-t"><title id="sch-chassis-t">Schéma de principe : châssis tubulaire vu de côté, avec arceaux, structure d'impact latéral, gabarit pilote et garde au sol de 150 mm</title><circle class="thin dash" cx="160" cy="243" r="42"/><circle class="thin dash" cx="505" cy="243" r="42"/><path class="ln" d="M80,232 L230,240"/><path class="ln" d="M230,240 L400,238"/><path class="ln" d="M400,238 L570,226"/><path class="ln" d="M88,188 L240,128"/><path class="ln" d="M80,232 L88,188"/><path class="ln" d="M570,226 L560,170"/><path class="ln" d="M412,78 L540,150"/><path class="ln" d="M540,150 L570,226"/><path class="ln" d="M400,238 L560,170"/><path class="ln" d="M88,188 L230,240"/><path class="ln" d="M240,128 L404,150"/><path class="ln" d="M404,150 L560,170"/><path class="ln side" d="M232,190 L402,192"/><path class="ln hoop" d="M230,240 L240,128"/><path class="ln hoop" d="M400,238 L412,78"/><path class="hls dash" d="M200,149 L470,48"/><circle class="fl2" cx="330" cy="125" r="16"/><path class="thin" d="M326,141 L320,205 L250,214 L200,224"/><path class="ln" d="M20,285 L620,285"/><path class="thin" d="M28,285 l-8,10 M42,285 l-8,10 M56,285 l-8,10 M70,285 l-8,10 M84,285 l-8,10 M98,285 l-8,10 M112,285 l-8,10 M126,285 l-8,10 M140,285 l-8,10 M154,285 l-8,10 M168,285 l-8,10 M182,285 l-8,10 M196,285 l-8,10 M210,285 l-8,10 M224,285 l-8,10 M238,285 l-8,10 M252,285 l-8,10 M266,285 l-8,10 M280,285 l-8,10 M294,285 l-8,10 M308,285 l-8,10 M322,285 l-8,10 M336,285 l-8,10 M350,285 l-8,10 M364,285 l-8,10 M378,285 l-8,10 M392,285 l-8,10 M406,285 l-8,10 M420,285 l-8,10 M434,285 l-8,10 M448,285 l-8,10 M462,285 l-8,10 M476,285 l-8,10 M490,285 l-8,10 M504,285 l-8,10 M518,285 l-8,10 M532,285 l-8,10 M546,285 l-8,10 M560,285 l-8,10 M574,285 l-8,10 M588,285 l-8,10 M602,285 l-8,10 M616,285 l-8,10 "/><path class="thin" d="M78,232 L44,232 M58,236 L58,281"/><path class="arrow" d="M58.0,232.0 L61.1,239.0 L54.9,239.0 Z"/><path class="arrow" d="M58.0,285.0 L54.9,278.0 L61.1,278.0 Z"/><text class="t" x="48" y="262" text-anchor="end">150</text><g class="mk"><circle cx="216" cy="112" r="13"/><text x="216" y="117">1</text></g><g class="mk"><circle cx="432" cy="62" r="13"/><text x="432" y="67">2</text></g><g class="mk"><circle cx="360" cy="176" r="13"/><text x="360" y="181">3</text></g><g class="mk"><circle cx="24" cy="210" r="13"/><text x="24" y="215">4</text></g><g class="mk"><circle cx="296" cy="112" r="13"/><text x="296" y="117">5</text></g></svg>
+            <ol class="legend"><li><b>1</b><span>Arceau avant, tube Ø 25 × 2,5</span></li><li><b>2</b><span>Arceau principal, tube Ø 25 × 2,5</span></li><li><b>3</b><span>Structure d’impact latéral, tube Ø 20</span></li><li><b>4</b><span>Garde au sol du nez : 150 mm, pour 30 mm minimum</span></li><li><b>5</b><span>Le casque du pilote reste sous la ligne qui relie les deux arceaux</span></li></ol>
+            <figcaption class="xcap"><p>Schéma de principe. Dans le modèle réel, chacun de ces points est piloté par un paramètre nommé.</p></figcaption>
+          </figure>
           <div class="gal" data-gal>
             <figure class="w6"><button type="button"><img class="cover" src="assets/img/efst-voiture.jpg" alt="Maquette numérique du véhicule complet" loading="lazy"></button><figcaption>Le châssis dans la maquette complète</figcaption></figure>
             <figure><button type="button"><img class="cover" src="assets/img/efst-fabrication.jpg" alt="Châssis tubulaire en cours de fabrication en atelier" loading="lazy"></button><figcaption>Le châssis en fabrication</figcaption></figure>
@@ -487,6 +582,11 @@ dialog p{font-size:15px;color:#F5F5F7;margin:12px 0 0;text-align:center}
               <dt>Période</dt><dd>5 – 23 janvier 2026</dd>
             </dl>
           </header>
+          <figure class="sfig xpanel">
+            <svg class="sch" viewBox="0 0 640 330" role="img" aria-labelledby="sch-aura-t"><title id="sch-aura-t">Schéma de principe : robot cartésien fixé au plafond de la station, caméra de lecture de plaque et véhicule en place</title><path class="ln" d="M20,30 L620,30"/><path class="thin" d="M28,30 l-8,-10 M42,30 l-8,-10 M56,30 l-8,-10 M70,30 l-8,-10 M84,30 l-8,-10 M98,30 l-8,-10 M112,30 l-8,-10 M126,30 l-8,-10 M140,30 l-8,-10 M154,30 l-8,-10 M168,30 l-8,-10 M182,30 l-8,-10 M196,30 l-8,-10 M210,30 l-8,-10 M224,30 l-8,-10 M238,30 l-8,-10 M252,30 l-8,-10 M266,30 l-8,-10 M280,30 l-8,-10 M294,30 l-8,-10 M308,30 l-8,-10 M322,30 l-8,-10 M336,30 l-8,-10 M350,30 l-8,-10 M364,30 l-8,-10 M378,30 l-8,-10 M392,30 l-8,-10 M406,30 l-8,-10 M420,30 l-8,-10 M434,30 l-8,-10 M448,30 l-8,-10 M462,30 l-8,-10 M476,30 l-8,-10 M490,30 l-8,-10 M504,30 l-8,-10 M518,30 l-8,-10 M532,30 l-8,-10 M546,30 l-8,-10 M560,30 l-8,-10 M574,30 l-8,-10 M588,30 l-8,-10 M602,30 l-8,-10 M616,30 l-8,-10 "/><rect class="fl2" x="60" y="34" width="520" height="12" rx="2"/><path class="fl" d="M150,290 L150,250 C152,236 170,228 200,226 L250,222 C270,196 300,186 340,186 L400,186 C430,186 455,204 470,222 L505,228 C518,232 522,244 522,256 L522,290 Z"/><path class="fl2" d="M262,222 C278,202 300,194 330,194 L330,222 Z M340,194 L392,194 C412,194 428,206 440,222 L340,222 Z"/><circle class="fl" cx="210" cy="290" r="24"/><circle class="fl" cx="460" cy="290" r="24"/><rect class="hl" x="414" y="232" width="14" height="13" rx="2"/><rect class="fl" x="440" y="46" width="44" height="20" rx="3"/><rect class="fl" x="455" y="66" width="14" height="162"/><rect class="hl" x="428" y="224" width="34" height="9" rx="2"/><path class="ln" d="M428,228 L420,236"/><path class="ln thick" d="M44,300 L44,126"/><rect class="fl" x="36" y="108" width="36" height="18" rx="3"/><path class="hls dash" d="M72,117 L150,258 M72,123 L150,282"/><path class="fl2" d="M176,300 L188,286 L194,300 Z M226,300 L232,286 L244,300 Z"/><path class="ln" d="M20,300 L620,300"/><path class="thin" d="M28,300 l-8,10 M42,300 l-8,10 M56,300 l-8,10 M70,300 l-8,10 M84,300 l-8,10 M98,300 l-8,10 M112,300 l-8,10 M126,300 l-8,10 M140,300 l-8,10 M154,300 l-8,10 M168,300 l-8,10 M182,300 l-8,10 M196,300 l-8,10 M210,300 l-8,10 M224,300 l-8,10 M238,300 l-8,10 M252,300 l-8,10 M266,300 l-8,10 M280,300 l-8,10 M294,300 l-8,10 M308,300 l-8,10 M322,300 l-8,10 M336,300 l-8,10 M350,300 l-8,10 M364,300 l-8,10 M378,300 l-8,10 M392,300 l-8,10 M406,300 l-8,10 M420,300 l-8,10 M434,300 l-8,10 M448,300 l-8,10 M462,300 l-8,10 M476,300 l-8,10 M490,300 l-8,10 M504,300 l-8,10 M518,300 l-8,10 M532,300 l-8,10 M546,300 l-8,10 M560,300 l-8,10 M574,300 l-8,10 M588,300 l-8,10 M602,300 l-8,10 M616,300 l-8,10 "/><path class="thin" d="M584,170 L620,170 M584,170 L584,134 M584,170 L566,188"/><path class="arrow" d="M620.0,170.0 L613.0,173.2 L613.0,166.8 Z"/><path class="arrow" d="M584.0,134.0 L587.1,141.0 L580.9,141.0 Z"/><path class="arrow" d="M566.0,188.0 L568.7,180.8 L573.2,185.3 Z"/><text class="t" x="624" y="186">X</text><text class="t" x="592" y="134">Z</text><text class="t" x="552" y="204">Y</text><g class="mk"><circle cx="110" cy="66" r="13"/><text x="110" y="71">1</text></g><g class="mk"><circle cx="492" cy="142" r="13"/><text x="492" y="147">2</text></g><g class="mk"><circle cx="470" cy="254" r="13"/><text x="470" y="259">3</text></g><g class="mk"><circle cx="398" cy="262" r="13"/><text x="398" y="267">4</text></g><g class="mk"><circle cx="54" cy="90" r="13"/><text x="54" y="95">5</text></g><g class="mk"><circle cx="210" cy="324" r="13"/><text x="210" y="329">6</text></g></svg>
+            <ol class="legend"><li><b>1</b><span>Rail X fixé au plafond de la station</span></li><li><b>2</b><span>Axe vertical Z ; l’axe Y amène la pince vers le véhicule</span></li><li><b>3</b><span>Pince qui manipule le pistolet standard</span></li><li><b>4</b><span>Trappe à carburant</span></li><li><b>5</b><span>Caméra de lecture de plaque : identifie le véhicule et la position de sa trappe</span></li><li><b>6</b><span>Butées de positionnement au sol</span></li></ol>
+            <figcaption class="xcap"><p>Schéma de principe du système imaginé par l’équipe.</p></figcaption>
+          </figure>
           <div class="gal" data-gal>
             <figure class="film">
               <video src="assets/video/auraflow-robot.mp4" poster="assets/video/auraflow-robot-poster.jpg" muted loop playsinline preload="metadata" width="780" height="570" aria-label="Animation du robot cartésien AuraFlow qui ouvre la trappe et insère le pistolet"></video>
@@ -619,6 +719,11 @@ dialog p{font-size:15px;color:#F5F5F7;margin:12px 0 0;text-align:center}
               <dt>Période</dt><dd>Fév. – juil. 2026</dd>
             </dl>
           </header>
+          <figure class="sfig xpanel">
+            <svg class="sch" viewBox="0 0 760 290" role="img" aria-labelledby="sch-heli-t"><title id="sch-heli-t">Schéma de principe : hélicoptère vu de côté, avec une vue de détail sur le mât rotor et sa contrainte de Von Mises</title><path class="fl" d="M70,200 C70,150 120,130 180,128 L300,128 C330,128 345,150 345,175 L345,205 C345,225 320,232 290,232 L150,232 C100,232 70,225 70,200 Z"/><path class="fl2" d="M88,192 C92,162 120,146 160,143 L160,192 Z"/><path class="fl" d="M340,162 L520,171 L520,183 L340,200 Z"/><path class="fl" d="M503,172 L524,122 L540,122 L533,178 Z"/><circle class="thin" cx="535" cy="140" r="22"/><path class="ln" d="M120,262 L312,262 M112,262 Q98,262 98,252 M150,232 L145,262 M282,232 L287,262"/><rect class="hl" x="231" y="96" width="12" height="32" rx="2"/><ellipse class="fl" cx="237" cy="95" rx="15" ry="5"/><path class="ln thick" d="M58,90 L416,97"/><circle class="hls dash" cx="237" cy="112" r="22"/><path class="hls" d="M259,108 L569,101"/><clipPath id="clip-heli"><circle cx="650" cy="105" r="80"/></clipPath><circle cx="650" cy="105" r="80" fill="#fff"/><image href="assets/img/milan-mat-zoom.jpg" x="570" y="25" width="160" height="160" clip-path="url(#clip-heli)" preserveAspectRatio="xMidYMid slice"/><circle class="hls" cx="650" cy="105" r="80"/><g class="mk"><circle cx="192" cy="116" r="13"/><text x="192" y="121">1</text></g><g class="mk"><circle cx="712" cy="182" r="13"/><text x="712" y="187">2</text></g></svg>
+            <ol class="legend"><li><b>1</b><span>Mât rotor principal, vérifié en statique, en fatigue et au flambement</span></li><li><b>2</b><span>Vue de détail : contrainte de Von Mises calculée sous Abaqus</span></li></ol>
+            <figcaption class="xcap"><p>Schéma de principe ; la bulle reprend mon résultat de simulation.</p></figcaption>
+          </figure>
           <div class="gal" data-gal>
             <figure class="w6"><button type="button"><img src="assets/img/milan-mat-vonmises.jpg" alt="Champ de contrainte de Von Mises sur le mât rotor, Abaqus" loading="lazy"></button><figcaption>Contrainte de Von Mises sur le mât, Abaqus</figcaption></figure>
           </div>
@@ -647,6 +752,11 @@ dialog p{font-size:15px;color:#F5F5F7;margin:12px 0 0;text-align:center}
               <dt>Période</dt><dd>Mai – juillet 2022</dd>
             </dl>
           </header>
+          <figure class="sfig xpanel">
+            <svg class="sch" viewBox="0 0 640 340" role="img" aria-labelledby="sch-mat-t"><title id="sch-mat-t">Schéma de principe : mât de brise-roche avec crinoline, passerelle, bras hydraulique, ancrage et efforts</title><rect class="fl2" x="130" y="300" width="140" height="30"/><path class="ln dash" d="M160,292 L160,324 M172,292 L172,324 M228,292 L228,324 M240,292 L240,324"/><rect class="fl2" x="150" y="290" width="100" height="10"/><rect class="fl" x="180" y="92" width="40" height="198"/><path class="ln" d="M228,110 L228,290 M248,110 L248,290"/><path class="thin" d="M228,118 L248,118 M228,136 L248,136 M228,154 L248,154 M228,172 L248,172 M228,190 L248,190 M228,208 L248,208 M228,226 L248,226 M228,244 L248,244 M228,262 L248,262 M228,280 L248,280 "/><path class="thin" d="M226,140 C276,132 278,152 226,148 M226,170 C276,162 278,182 226,178 M226,200 C276,192 278,212 226,208 M226,230 C276,222 278,242 226,238 M226,260 C276,252 278,272 226,268 M272,136 L272,262"/><rect class="fl2" x="150" y="84" width="150" height="8"/><path class="thin" d="M150,84 L150,62 M300,84 L300,62 M150,62 L300,62 M225,84 L225,62"/><path class="tube-o" d="M212,78 L330,40 L440,120"/><path class="tube-i" d="M212,78 L330,40 L440,120"/><circle class="fl" cx="212" cy="78" r="6"/><circle class="fl" cx="330" cy="40" r="6"/><rect class="hl" x="430" y="118" width="22" height="52" rx="3"/><path class="dot" d="M436,170 L446,170 L441,190 Z"/><path class="fl2" d="M380,300 L398,258 L428,242 L470,252 L500,300 Z"/><path class="thin" d="M410,300 L420,262 M445,300 L452,256 M470,300 L476,268"/><path class="ln" d="M20,300 L130,300"/><path class="thin" d="M28,300 l-8,10 M42,300 l-8,10 M56,300 l-8,10 M70,300 l-8,10 M84,300 l-8,10 M98,300 l-8,10 M112,300 l-8,10 M126,300 l-8,10 "/><path class="ln" d="M270,300 L620,300"/><path class="thin" d="M278,300 l-8,10 M292,300 l-8,10 M306,300 l-8,10 M320,300 l-8,10 M334,300 l-8,10 M348,300 l-8,10 M362,300 l-8,10 M376,300 l-8,10 M390,300 l-8,10 M404,300 l-8,10 M418,300 l-8,10 M432,300 l-8,10 M446,300 l-8,10 M460,300 l-8,10 M474,300 l-8,10 M488,300 l-8,10 M502,300 l-8,10 M516,300 l-8,10 M530,300 l-8,10 M544,300 l-8,10 M558,300 l-8,10 M572,300 l-8,10 M586,300 l-8,10 M600,300 l-8,10 M614,300 l-8,10 "/><path class="thin" d="M104,130 L168,130"/><path class="arrow" d="M172.0,130.0 L165.0,133.2 L165.0,126.8 Z"/><path class="thin" d="M104,170 L168,170"/><path class="arrow" d="M172.0,170.0 L165.0,173.2 L165.0,166.8 Z"/><path class="thin" d="M104,210 L168,210"/><path class="arrow" d="M172.0,210.0 L165.0,213.2 L165.0,206.8 Z"/><path class="thin" d="M470,214 L470,176"/><path class="arrow" d="M470.0,172.0 L473.6,180.0 L466.4,180.0 Z"/><path class="hls" d="M164,290 A40,40 0 0 1 236,290"/><path class="arrow hlf" d="M236,290 L228,280 L242,281 Z"/><text class="t" x="34" y="276">65 900 N·m</text><g class="mk"><circle cx="160" cy="246" r="13"/><text x="160" y="251">1</text></g><g class="mk"><circle cx="300" cy="200" r="13"/><text x="300" y="205">2</text></g><g class="mk"><circle cx="318" cy="22" r="13"/><text x="318" y="27">3</text></g><g class="mk"><circle cx="292" cy="320" r="13"/><text x="292" y="325">4</text></g></svg>
+            <ol class="legend"><li><b>1</b><span>Mât, dimensionné au moment à la base : 65 900 N·m</span></li><li><b>2</b><span>Crinoline et passerelle, selon la norme NF E 85-016</span></li><li><b>3</b><span>Bras et brise-roche hydraulique</span></li><li><b>4</b><span>Ancrage : 6 goujons pour 4 requis</span></li></ol>
+            <figcaption class="xcap"><p>Schéma de principe. Flèches : vent sur le mât, choc du brise-roche, moment à la base.</p></figcaption>
+          </figure>
           <div class="gal" data-gal>
             <figure><button type="button"><img class="cover" src="assets/img/brh-installation.jpg" alt="Brise-roche sur son mât au-dessus du concasseur" loading="lazy"></button><figcaption>Brise-roche au-dessus du concasseur</figcaption></figure>
             <figure><button type="button"><img class="cover" src="assets/img/brh-mat-atelier.jpg" alt="Mât fabriqué à l'atelier" loading="lazy"></button><figcaption>Le mât à l’atelier</figcaption></figure>
@@ -666,8 +776,37 @@ dialog p{font-size:15px;color:#F5F5F7;margin:12px 0 0;text-align:center}
             <h4>Rack à tôle et hotte d’aspiration</h4>
             <p>Un rack à tôle 4000 × 2000 en cornières, qui gagne de la hauteur entre étages, dont j’ai soudé un plateau. Une hotte en tôle pliée de 3 mm, à faces interchangeables, pour un client.</p>
             <h4>Et ensuite</h4>
-            <p>J’ai créé ma micro-entreprise, KBE, la même année. Depuis, j’ai réalisé environ 600 heures de bureau d’études pour Fradem : modélisation 3D, mises en plan et reconstitution de géométrie, dont un relevé de cotes à l’intérieur d’un crible vibrant, sur un site de carrière.</p>
+            <p>La même année, j’ai créé ma micro-entreprise pour continuer à travailler avec Fradem en indépendant. <a class="more" href="#kbe">Voir KBE</a></p>
             <ul class="tools"><li>SolidWorks</li><li>AutoCAD</li><li>Mise en plan</li><li>Débit plasma</li><li>Soudure</li></ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- KBE -->
+      <article class="project" id="kbe" aria-labelledby="kbe-t">
+        <div class="wrap">
+          <header class="p-head">
+            <h3 id="kbe-t">KBE, ma micro-entreprise de conception mécanique</h3>
+            <dl class="meta">
+              <dt>Rôle</dt><dd>Fondateur</dd>
+              <dt>Client principal</dt><dd>Fradem, Domène</dd>
+              <dt>Période</dt><dd>Depuis 2022</dd>
+            </dl>
+          </header>
+          <ol class="flow" aria-label="Déroulement d’une mission">
+            <li><b>1</b><span class="ft">Relevé sur site</span><span class="fd">Prise de cotes sur un site de carrière, jusqu’à l’intérieur d’un crible vibrant.</span></li>
+            <li><b>2</b><span class="ft">Modèle 3D</span><span class="fd">Reconstitution de la géométrie existante.</span></li>
+            <li><b>3</b><span class="ft">Mise en plan 2D</span><span class="fd">Plans cotés, prêts à être exploités.</span></li>
+            <li><b>4</b><span class="ft">Livraison</span><span class="fd">Modèles et plans remis au client.</span></li>
+          </ol>
+          <div class="p-text">
+            <p>J’ai créé KBE en 2022, l’année de mon stage chez Fradem, et je la mène en parallèle de mes études. J’y réalise des prestations de bureau d’études : modélisation 3D, mise en plan 2D et reconstitution de géométrie.</p>
+            <ul class="cotes">
+              <li class="cote"><span class="v">550+ h</span><span class="d"></span><span class="x">De bureau d’études pour Fradem, construction métallique pour les carrières.</span></li>
+              <li class="cote"><span class="v">Depuis 2022</span><span class="d"></span><span class="x">En parallèle du BTS, de la prépa et de l’école d’ingénieurs.</span></li>
+            </ul>
+            <p>Ce que ça m’apporte : travailler directement pour un client, de sa demande jusqu’au plan livré.</p>
+            <ul class="tools"><li>Modélisation 3D</li><li>Mise en plan</li><li>Relevé de cotes</li><li>Relation client</li></ul>
           </div>
         </div>
       </article>
@@ -773,7 +912,7 @@ dialog p{font-size:15px;color:#F5F5F7;margin:12px 0 0;text-align:center}
           <span class="when">Depuis 2022</span>
           <h3>KBE, ma micro-entreprise <span class="tag">Expérience</span></h3>
           <p class="where">Fondateur, bureau d’études et conception mécanique</p>
-          <p>Modélisation 3D, mise en plan et reconstitution de géométrie, menées en parallèle de mes études. Mission principale : environ 600 heures pour Fradem.</p>
+          <p>Modélisation 3D, mise en plan et reconstitution de géométrie, menées en parallèle de mes études. Plus de 550 heures pour Fradem, mon client principal.</p>
         </div></li>
         <li class="x"><div>
           <span class="when">Mai – juil. 2022</span>
