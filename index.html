@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<script>document.documentElement.classList.add('js');document.addEventListener('DOMContentLoaded',function(){if(!document.querySelector('[data-view].on'))document.documentElement.classList.remove('js')})</script>
 <title>Ken Flores, étudiant-ingénieur Arts et Métiers</title>
 <meta name="description" content="Ken Flores, étudiant-ingénieur Arts et Métiers à l'ECAM LaSalle Lyon (promotion 2027) : conception mécanique, qualité et industrie du futur, avec un semestre d'ingénierie aérospatiale au Politecnico di Milano.">
 <meta name="author" content="Ken Flores">
@@ -16,7 +17,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://ken38420.github.io/kenflores/">
-<meta name="theme-color" content="#FFFFFF">
+<meta name="theme-color" content="#0A1A30">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%230071E3'/%3E%3Cellipse cx='32' cy='20' rx='18' ry='6' fill='none' stroke='%23FFFFFF' stroke-width='3'/%3E%3Cpath d='M14 20v24a18 6 0 0 0 36 0V20' fill='none' stroke='%23FFFFFF' stroke-width='3'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,420 +25,40 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person","name":"Ken Flores","jobTitle":"Étudiant-ingénieur Arts et Métiers","alumniOf":[{"@type":"CollegeOrUniversity","name":"ECAM LaSalle"},{"@type":"CollegeOrUniversity","name":"Politecnico di Milano"}],"address":{"@type":"PostalAddress","addressLocality":"Lyon","addressCountry":"FR"},"sameAs":["https://www.linkedin.com/in/ken-flores-01949a240/","https://github.com/ken38420"]}
 </script>
-<style>
-:root{
-  --paper:#FFFFFF;
-  --tile:#F5F5F7;
-  --ink:#1D1D1F;
-  --ink-2:#6E6E73;
-  --rule:#D2D2D7;
-  --blue:#0066CC;
-  --blue-btn:#0071E3;
-  --blue-soft:#DCEBFF;
-  --img-bg:#FFFFFF;
-  --sans:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",Roboto,"Helvetica Neue",sans-serif;
-  --ease:cubic-bezier(.25,.1,.25,1);
-  color-scheme:light;
-}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){--paper:#000000;--tile:#161617;--ink:#F5F5F7;--ink-2:#A1A1A6;--rule:#38383D;--blue:#2997FF;--blue-btn:#0071E3;--blue-soft:#0B3A6E;color-scheme:dark}
-}
-:root[data-theme="dark"]{--paper:#000000;--tile:#161617;--ink:#F5F5F7;--ink-2:#A1A1A6;--rule:#38383D;--blue:#2997FF;--blue-btn:#0071E3;--blue-soft:#0B3A6E;color-scheme:dark}
-*,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:56px}
-body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.5 var(--sans);letter-spacing:-.011em;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-::selection{background:var(--blue-soft);color:var(--ink)}
-img,video{max-width:100%;display:block}
-[hidden]{display:none!important}
-a{color:var(--blue);text-decoration:none}
-a:hover{text-decoration:underline;text-underline-offset:3px}
-:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:4px}
-h1,h2,h3,h4{font-family:var(--sans);text-wrap:balance;margin:0;letter-spacing:-.02em}
-p{margin:0 0 1em}
-.wrap{max-width:1080px;margin:0 auto;padding-inline:clamp(16px,4vw,32px)}
-.num{font-variant-numeric:tabular-nums}
-.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:var(--paper);padding:10px 14px;z-index:50;border-radius:8px}
-.skip:focus{left:8px}
-@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*,*::before,*::after{transition-duration:0s!important;animation-duration:0s!important}}
-.more{color:var(--blue);font-weight:400}
-.more::after{content:"";display:inline-block;width:.42em;height:.42em;border-right:1.5px solid currentColor;border-top:1.5px solid currentColor;transform:rotate(45deg);margin-left:.35em;vertical-align:.12em}
-
-/* barre */
-.bar{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--paper) 80%,transparent);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid color-mix(in srgb,var(--rule) 70%,transparent)}
-.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:48px}
-.mark{font-weight:600;font-size:17px;color:var(--ink);white-space:nowrap}
-.mark:hover{text-decoration:none}
-.bar nav{display:flex;gap:clamp(14px,3vw,32px)}
-.bar nav a{font-size:13.5px;color:var(--ink-2);transition:color .2s}
-.bar nav a:hover,.bar nav a[aria-current="true"]{color:var(--ink);text-decoration:none}
-@media (max-width:560px){.bar nav a.opt{display:none}}
-.ribbon{background:var(--tile);text-align:center;padding:12px 16px;font-size:14px;line-height:1.45;color:var(--ink)}
-.ribbon p{margin:0}
-
-/* hero */
-.hero{text-align:center;padding-block:clamp(56px,9vw,112px) clamp(48px,7vw,88px)}
-.avatar{position:relative;width:clamp(96px,11vw,128px);aspect-ratio:1;margin:0 auto 22px;border-radius:50%;overflow:hidden;background:linear-gradient(145deg,#E8F1FE,#C9DDFB);display:grid;place-items:center;box-shadow:0 12px 32px -16px rgba(0,60,140,.45)}
-.avatar span{font-weight:600;font-size:clamp(32px,3.4vw,42px);color:#0058B0;letter-spacing:.01em}
-.avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.hero h1{font-size:clamp(48px,7.4vw,96px);font-weight:700;line-height:1.02;letter-spacing:-.03em;margin:0 0 10px}
-.headline{font-size:clamp(22px,2.8vw,34px);font-weight:600;line-height:1.15;letter-spacing:-.02em;margin:0 auto 18px;max-width:22em}
-.lede{font-size:clamp(17px,1.6vw,21px);line-height:1.5;color:var(--ink-2);max-width:36em;margin:0 auto 30px}
-.ctas{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:14px 28px}
-.btn{display:inline-flex;align-items:center;justify-content:center;font:400 17px/1 var(--sans);padding:12px 22px;border-radius:980px;border:1px solid var(--blue-btn);background:transparent;color:var(--blue);cursor:pointer;transition:background-color .2s,color .2s,transform .2s}
-.btn:hover{text-decoration:none;background:var(--blue-btn);color:#fff}
-.btn:active{transform:scale(.98)}
-.btn.solid{background:var(--blue-btn);color:#fff}
-.btn.solid:hover{background:#0077ED}
-
-/* sections */
-.sec{padding-block:clamp(72px,10vw,128px)}
-.alt{background:var(--tile)}
-.sec-head{text-align:center;margin:0 auto clamp(36px,5vw,56px);max-width:40em}
-.h2{font-size:clamp(36px,5vw,56px);font-weight:700;line-height:1.07;letter-spacing:-.025em;margin:0 0 14px;text-align:center}
-.h2.small{font-size:clamp(30px,3.6vw,44px)}
-.intro-p{font-size:clamp(17px,1.6vw,21px);color:var(--ink-2);margin:0 auto;max-width:36em;text-align:center}
-
-/* profil */
-.profile{display:block}
-.profile > div:first-child{text-align:center;max-width:46em;margin:0 auto clamp(36px,5vw,56px)}
-.statement{font-size:clamp(24px,3vw,36px);font-weight:600;line-height:1.2;letter-spacing:-.02em;margin:0;color:var(--ink)}
-.bio{max-width:720px;margin:0 auto}
-.bio > p{font-size:19px;color:var(--ink-2);text-align:center}
-.bio > p:last-of-type{margin-bottom:0}
-.hats{margin:36px 0 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;width:min(1016px,calc(100vw - 32px));position:relative;left:50%;transform:translateX(-50%)}
-@media (max-width:820px){.hats{grid-template-columns:1fr;width:100%;left:0;transform:none}}
-.hats div{background:var(--tile);border-radius:22px;padding:28px 26px}
-.hats dt{font-size:24px;font-weight:700;letter-spacing:-.02em;margin-bottom:8px}
-.hats dd{margin:0;color:var(--ink-2);font-size:16px;line-height:1.5}
-
-/* tuiles projets */
-.projects{padding-top:clamp(72px,10vw,128px)}
-.tiles{list-style:none;margin:0 0 clamp(72px,10vw,120px);padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-@media (max-width:760px){.tiles{grid-template-columns:1fr}}
-.tile a{display:flex;flex-direction:column;height:100%;background:var(--tile);border-radius:22px;overflow:hidden;color:var(--ink);text-align:center;transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
-.tile a:hover{text-decoration:none;transform:translateY(-3px);box-shadow:0 18px 40px -24px rgba(0,0,0,.28)}
-.tile-txt{display:flex;flex-direction:column;align-items:center;gap:4px;padding:36px 24px 22px}
-.tile-t{font-size:clamp(24px,2.6vw,32px);font-weight:700;line-height:1.12;letter-spacing:-.02em}
-.tile-c{color:var(--ink-2);font-size:16px}
-.tile .more{margin-top:10px}
-.tile img{margin-top:auto;width:100%;height:clamp(220px,26vw,300px);object-fit:contain;padding:0 24px 24px;mix-blend-mode:multiply}
-.tile img.cover{object-fit:cover;padding:0;mix-blend-mode:normal}
-
-/* projet détaillé */
-.project{padding-block:clamp(72px,9vw,112px);scroll-margin-top:48px}
-.project.alt{background:var(--tile)}
-.project > .wrap{display:grid;gap:clamp(32px,4vw,48px)}
-.p-head{text-align:center}
-.p-head h3{font-size:clamp(32px,4.4vw,52px);font-weight:700;line-height:1.08;letter-spacing:-.025em;max-width:18em;margin:0 auto 18px}
-.meta{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 0;margin:0;font-size:15px;color:var(--ink)}
-.meta dt{color:var(--ink-2);margin-right:6px}
-.meta dd{margin:0 22px 0 0}
-.meta dd:last-child{margin-right:0}
-.p-text{max-width:720px;width:100%;margin:0 auto;font-size:17px}
-.p-text p,.p-text li{max-width:none}
-.p-text h4{font-size:21px;font-weight:700;letter-spacing:-.015em;margin:32px 0 10px}
-.p-text h4:first-child{margin-top:0}
-.p-text ul{margin:0 0 1em;padding-left:1.15em}
-.p-text li{margin-bottom:8px}
-.p-text li::marker{color:var(--ink-2)}
-.flag{display:flex;gap:14px;align-items:flex-start;background:var(--blue-soft);color:var(--ink);padding:16px 20px;border-radius:16px;margin:0 0 24px;font-size:16px;line-height:1.45}
-.flag p{margin:0}
-.flag svg{flex:none;width:22px;height:22px;color:var(--blue);margin-top:1px}
-.p-text ul.tools,.tools{display:flex;flex-wrap:wrap;gap:8px;margin:28px 0 0;padding:0;list-style:none}
-.tools li{font-size:14px;line-height:1;padding:8px 13px;border-radius:980px;background:var(--tile);color:var(--ink-2);margin:0}
-.project.alt .tools li{background:var(--paper)}
-
-/* chiffres clés */
-.p-text ul.cotes,.cotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:32px 0;padding:0;list-style:none}
-.cote{display:flex;flex-direction:column;gap:6px;margin:0;padding:22px 20px;border-radius:18px;background:var(--tile);text-align:center}
-.project.alt .cote{background:var(--paper)}
-.p-text .cotes li{margin:0}
-.cote .v{font-size:clamp(24px,2.6vw,32px);font-weight:700;line-height:1.1;letter-spacing:-.02em;color:var(--blue);font-variant-numeric:tabular-nums}
-.cote .d{display:none}
-.cote .x{font-size:14px;color:var(--ink-2);line-height:1.4}
-
-/* galeries */
-.gal{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;align-content:start}
-.gal figure{margin:0;grid-column:span 3;display:flex;flex-direction:column;min-width:0}
-.gal .w6{grid-column:span 6}.gal .w4{grid-column:span 4}.gal .w2{grid-column:span 2}
-.gal .tall{grid-row:span 2}
-.gal figure > button:not(.pp){all:unset;box-sizing:border-box;display:block;cursor:zoom-in;background:var(--img-bg);border-radius:18px;overflow:hidden;aspect-ratio:4/3;flex:1}
-.gal figure > button:not(.pp):focus-visible{outline:2px solid var(--blue);outline-offset:3px}
-.gal .w6 > button:not(.pp){aspect-ratio:21/9}
-.project:not(.alt) .gal figure > button:not(.pp){background:var(--tile)}
-.project:not(.alt) .gal img:not(.cover){mix-blend-mode:multiply}
-.gal .tall > button:not(.pp){aspect-ratio:auto;min-height:100%}
-.gal img{width:100%;height:100%;object-fit:contain;transition:transform .6s var(--ease)}
-.gal img.cover{object-fit:cover}
-.gal figure > button:hover img{transform:scale(1.025)}
-.gal figcaption{font-size:13.5px;line-height:1.35;color:var(--ink-2);padding:8px 4px 0;text-align:center}
-@media (max-width:600px){.gal figure,.gal .w2,.gal .w4{grid-column:span 6}.gal .tall{grid-row:auto}.gal .tall > button:not(.pp){aspect-ratio:3/4}.gal .w6 > button:not(.pp){aspect-ratio:4/3}}
-.gal .film{position:relative;grid-column:span 6;margin:0;border-radius:18px;overflow:hidden;background:#fff}
-.film video{width:100%;height:auto;max-height:560px;object-fit:contain;margin:0 auto}
-.film .pp{position:absolute;right:14px;bottom:14px;font:400 14px/1 var(--sans);padding:10px 16px;border-radius:980px;border:0;background:rgba(29,29,31,.72);color:#fff;cursor:pointer;backdrop-filter:blur(8px)}
-.credit{font-size:14px;color:var(--ink-2);text-align:center;margin:0}
-
-/* vue éclatée */
-.xfig{margin:0;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(220px,1fr);gap:8px 32px;align-items:center}
-.xpanel{background:var(--tile);border-radius:22px;padding:clamp(20px,3.4vw,44px)}
-.project.alt .xpanel{background:var(--paper)}
-@media (max-width:620px){.xfig{grid-template-columns:1fr}}
-.xview{width:100%;height:auto;max-height:540px;overflow:visible;justify-self:center}
-.xview .fill{fill:var(--paper);stroke:var(--ink);stroke-width:1.4;stroke-linejoin:round;transition:fill .25s}
-.xview .top{fill:var(--tile)}
-.project.alt .xview .top{fill:#EEF1F5}
-.xview .thin{fill:none;stroke:var(--ink);stroke-width:.8;opacity:.35}
-.xview .leader path{fill:none;stroke:var(--ink-2);stroke-width:1.1}
-.xview .leader circle{fill:var(--paper);stroke:var(--ink);stroke-width:1.3;transition:fill .25s}
-.xview .leader text{font:600 17px var(--sans);text-anchor:middle;fill:var(--ink)}
-.xview .dim text{font-size:16px;fill:var(--ink-2)}
-.xview .dim path{stroke:var(--ink-2)}
-.xview .arrow{fill:var(--ink-2);stroke:none}
-.xview .seal{fill:none;stroke:var(--blue);stroke-width:4.5;opacity:.9}
-.xview .bolt{fill:var(--ink)}
-.xview .part{transition:transform 1.25s cubic-bezier(.16,1,.3,1);cursor:pointer}
-.xview .part[data-part="alu"]{transition-delay:.06s}
-.xview .part[data-part="xps"]{transition-delay:.12s}
-.xview .leader,.xview .inner{transition:opacity .5s .85s}
-.xview.assembled .part{transform:translateY(var(--dy));transition-delay:0s}
-.xview.assembled .leader,.xview.assembled .inner{opacity:0;transition-delay:0s;transition-duration:.2s}
-.xview.still .part,.xview.still .leader,.xview.still .inner{transition:none}
-.xfig[data-active="lid"] [data-part="lid"] .fill,.xfig[data-active="alu"] [data-part="alu"] .fill,.xfig[data-active="xps"] [data-part="xps"] .fill,.xfig[data-active="abs"] [data-part="abs"] .fill,
-.xfig[data-active="lid"] [data-part="lid"] .leader circle,.xfig[data-active="alu"] [data-part="alu"] .leader circle,.xfig[data-active="xps"] [data-part="xps"] .leader circle,.xfig[data-active="abs"] [data-part="abs"] .leader circle{fill:var(--blue-soft)}
-.parts{list-style:none;margin:0;padding:0;display:grid;gap:2px;font-size:16px;line-height:1.35}
-.parts button{all:unset;box-sizing:border-box;display:grid;grid-template-columns:30px 1fr;gap:12px;align-items:start;width:100%;padding:10px;border-radius:12px;cursor:pointer;transition:background-color .2s}
-.parts button:focus-visible{outline:2px solid var(--blue);outline-offset:0}
-.parts button:hover,.parts button[aria-pressed="true"]{background:var(--blue-soft)}
-.parts b{display:grid;place-items:center;width:28px;height:28px;border:1.3px solid var(--ink);border-radius:50%;font-size:13px;font-weight:600}
-.parts small{display:block;font-size:14px;color:var(--ink-2);margin-top:2px}
-.xcap{grid-column:1/-1;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px 16px;font-size:15px;line-height:1.45;color:var(--ink-2);border-top:1px solid var(--rule);padding-top:16px;margin-top:8px}
-.xcap p{margin:0;max-width:40em}
-.xtoggle{font-size:15px;padding:9px 16px}
-
-
-/* schémas de principe */
-.sfig{margin:0;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(220px,1fr);gap:8px 32px;align-items:center}
-@media (max-width:720px){.sfig{grid-template-columns:1fr}}
-.sch{width:100%;height:auto;overflow:visible}
-.sch .ln{fill:none;stroke:var(--ink);stroke-width:1.6;stroke-linejoin:round;stroke-linecap:round}
-.sch .ln.thick{stroke-width:3}
-.sch .ln.hoop{stroke-width:3.4}
-.sch .ln.side{stroke-width:2.4}
-.sch .fl{fill:var(--paper);stroke:var(--ink);stroke-width:1.5;stroke-linejoin:round}
-.sch .fl2{fill:var(--tile);stroke:var(--ink);stroke-width:1.2;stroke-linejoin:round}
-.project.alt .sch .fl2{fill:#EAEAEE}
-.sch .hl{fill:var(--blue-soft);stroke:var(--blue);stroke-width:1.8}
-.sch .hls{fill:none;stroke:var(--blue);stroke-width:1.8}
-.sch .thin{fill:none;stroke:var(--ink-2);stroke-width:1}
-.sch .dash{stroke-dasharray:5 5}
-.sch .dot{fill:var(--ink)}
-.sch .bub{fill:var(--paper)}
-.sch .arrow{fill:var(--ink-2)}
-.sch .arrow.hlf{fill:var(--blue)}
-.sch .tube-o{fill:none;stroke:var(--ink);stroke-width:7;stroke-linejoin:round;stroke-linecap:round}
-.sch .tube-i{fill:none;stroke:var(--paper);stroke-width:4;stroke-linejoin:round;stroke-linecap:round}
-.sch .tube-o.big{stroke-width:22;stroke-linecap:butt}
-.sch .tube-i.big{stroke-width:16;stroke-linecap:butt}
-.sch .t{font:600 15px var(--sans);fill:var(--ink-2)}
-.sch .mk circle{fill:var(--paper);stroke:var(--ink);stroke-width:1.3}
-.sch .mk text{font:600 14px var(--sans);text-anchor:middle;fill:var(--ink)}
-.legend{list-style:none;margin:0;padding:0;display:grid;gap:4px;font-size:15.5px;line-height:1.4}
-.legend li{display:grid;grid-template-columns:28px 1fr;gap:12px;align-items:start;padding:6px 0}
-.legend b{display:grid;place-items:center;width:26px;height:26px;border:1.3px solid var(--ink);border-radius:50%;font-size:12.5px;font-weight:600}
-/* tuiles : schémas et cadre */
-.tile svg{margin-top:auto;width:100%;height:clamp(220px,26vw,300px);padding:0 24px 24px}
-.tile img.frame{object-fit:contain;mix-blend-mode:normal;padding:0 24px 24px;filter:drop-shadow(0 14px 24px rgba(0,40,90,.18))}
-.tile.wide{grid-column:1/-1}
-.tile.wide a{flex-direction:row;align-items:center;justify-content:center;gap:clamp(24px,8vw,120px)}
-.tile-stat{display:flex;flex-direction:column;align-items:center;gap:6px;padding:36px 24px;color:var(--ink-2);font-size:16px;max-width:18em}
-.tile-stat .big{white-space:nowrap;font-size:clamp(52px,7vw,84px);font-weight:700;letter-spacing:-.04em;line-height:1;color:var(--blue)}
-@media (max-width:760px){.tile.wide a{flex-direction:column;gap:0}.tile-stat{padding-top:0}}
-/* KBE : déroulement */
-.flow{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;counter-reset:none}
-@media (max-width:820px){.flow{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:480px){.flow{grid-template-columns:1fr}}
-.flow li{position:relative;background:var(--tile);border-radius:18px;padding:22px 20px;display:flex;flex-direction:column;gap:6px}
-.project.alt .flow li{background:var(--paper)}
-.flow b{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--blue-btn);color:#fff;font-size:14px;font-weight:600;margin-bottom:6px}
-.flow .ft{font-size:19px;font-weight:700;letter-spacing:-.015em}
-.flow .fd{font-size:15px;color:var(--ink-2);line-height:1.45}
-
-
-/* Milan */
-.courses{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-@media (max-width:820px){.courses{grid-template-columns:1fr}}
-.course{background:var(--paper);border-radius:22px;overflow:hidden;display:flex;flex-direction:column}
-.course-vis{--ink:#1D1D1F;--ink-2:#6E6E73;--paper:#fff;--tile:#F5F5F7;--blue:#0066CC;--blue-soft:#DCEBFF;color:#1D1D1F;background:#fff;padding:22px 24px 10px;min-height:260px;display:grid;align-items:center}
-.course-vis .sch{max-height:280px}
-.course-vis .gal{grid-template-columns:repeat(2,minmax(0,1fr))}
-.course-vis .gal figure{grid-column:span 1}
-.course-vis .gal .w6{grid-column:1/-1}
-.course-vis .gal figure > button:not(.pp){aspect-ratio:3/2;background:#fff}
-.course-vis .gal .w6 > button:not(.pp){aspect-ratio:16/10}
-.course-body{padding:26px 28px 30px}
-.course h3{font-size:24px;font-weight:700;letter-spacing:-.02em;line-height:1.15;margin:0 0 4px}
-.course .prof{color:var(--ink-2);font-size:15px;margin:0 0 16px}
-.course-body p{font-size:16px;line-height:1.5}
-.course-body p b{font-weight:600}
-.course-note{color:var(--ink-2);font-size:15px!important;margin:0}
-.mini{list-style:none;margin:18px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.mini li{background:var(--tile);border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:2px;font-size:14px;color:var(--ink-2)}
-.mini .v{font-size:24px;font-weight:700;color:var(--blue);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
-.sch tspan.sub{font-size:11px}
-#milan .credit{margin-top:24px}
-/* fonds selon l'alternance des sections */
-.sec:not(.alt) .tl > li > div{background:var(--tile)}
-.sec:not(.alt) .side > div{background:var(--tile)}
-.sec:not(.alt) .repos a{background:var(--paper)}
-.alt .aim dl div{background:var(--paper)}
-.alt .langs li{background:var(--paper)}
-.contact{background:var(--paper)}
-
-/* autres projets */
-.others-band{padding-block:clamp(72px,9vw,112px)}
-.others{list-style:none;margin:36px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-@media (max-width:760px){.others{grid-template-columns:1fr}}
-.others > li{background:var(--tile);border-radius:22px;padding:28px 28px 30px;display:flex;flex-direction:column;gap:10px}
-.others h4{font-size:22px;font-weight:700;letter-spacing:-.02em;line-height:1.15;margin:0 0 4px}
-.others .ctx{font-size:15px;color:var(--ink-2);margin:0}
-.others p{margin:0;font-size:16px}
-.others .cote{margin-top:14px;background:var(--paper);text-align:left;padding:16px 18px}
-.others .thumb{all:unset;cursor:zoom-in;display:block;margin-top:16px;border-radius:14px;overflow:hidden;background:#fff;max-height:260px}
-.others .thumb img{width:100%;height:260px;object-fit:cover;object-position:top}
-.others .thumb:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
-
-/* parcours */
-.lanes{display:grid;grid-template-columns:1fr 1fr;margin-top:clamp(32px,5vw,48px)}
-.lanes span{font-size:15px;font-weight:600;color:var(--ink-2);padding-bottom:12px}
-.lanes span:first-child{text-align:right;padding-right:36px}
-.lanes span:last-child{padding-left:36px}
-.tl{list-style:none;margin:0;padding:8px 0 0;position:relative}
-.tl::before{content:"";position:absolute;left:50%;top:0;bottom:0;border-left:1px solid var(--rule)}
-.tl > li{position:relative;display:grid;grid-template-columns:1fr 1fr;padding:10px 0}
-.tl > li > div{padding:20px 22px;background:var(--paper);border-radius:18px}
-.tl > li.f > div{grid-column:1;margin-right:36px}
-.tl > li.x > div{grid-column:2;margin-left:36px}
-.tl > li::before{content:"";position:absolute;left:50%;top:36px;width:11px;height:11px;margin-left:-5px;border-radius:50%;background:var(--paper);border:1.5px solid var(--ink-2)}
-.tl > li.now::before{background:var(--blue);border-color:var(--blue)}
-.tl .when{font-size:13.5px;font-weight:600;color:var(--blue);display:block;margin-bottom:6px;font-variant-numeric:tabular-nums}
-.tl h3{font-size:21px;font-weight:700;line-height:1.15;margin:0 0 4px}
-.tl .where{font-size:15px;color:var(--ink-2);margin:0 0 8px}
-.tl p{font-size:15.5px;margin:0}
-.tl .tag{display:none}
-.tl details{margin-top:12px;font-size:15px}
-.tl summary{cursor:pointer;color:var(--blue)}
-.tl details ul{margin:10px 0 0;padding-left:1.1em}
-.tl details li{margin-bottom:6px;color:var(--ink-2)}
-.tl details li b{color:var(--ink);font-weight:600}
-@media (max-width:760px){
-  .lanes{display:none}
-  .tl::before{left:6px}
-  .tl > li{grid-template-columns:1fr;padding:7px 0}
-  .tl > li.f > div,.tl > li.x > div{grid-column:1;margin:0 0 0 26px}
-  .tl > li::before{left:6px;top:32px}
-  .tl .tag{display:inline;font-size:12.5px;font-weight:400;color:var(--ink-2);margin-left:8px;letter-spacing:0}
-}
-
-/* compétences */
-.skills{width:100%;border-collapse:collapse;margin-top:clamp(28px,4vw,44px);font-size:16px}
-.skills th,.skills td{text-align:left;vertical-align:top;padding:18px 20px 18px 0;border-bottom:1px solid var(--rule)}
-.skills thead th{font-size:13.5px;font-weight:600;color:var(--ink-2);padding-bottom:10px}
-.skills tbody th{font-size:18px;font-weight:700;width:22%;letter-spacing:-.01em}
-.skills td:last-child{color:var(--ink-2);width:30%;padding-right:0}
-@media (max-width:760px){
-  .skills thead{display:none}
-  .skills tr,.skills th,.skills td{display:block;width:auto!important;padding-right:0}
-  .skills tbody th{border-bottom:0;padding:18px 0 4px}
-  .skills td{border-bottom:0;padding:2px 0}
-  .skills tr{border-bottom:1px solid var(--rule);padding-bottom:16px}
-  .skills td:last-child::before{content:"Utilisé : ";font-weight:600;color:var(--ink)}
-}
-.langs{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:36px;padding:0;list-style:none}
-.langs li{background:var(--tile);border-radius:18px;padding:20px 22px}
-.langs b{font-size:19px;font-weight:700;display:block;margin-bottom:4px}
-.langs span{color:var(--ink-2);font-size:15.5px}
-
-/* en dehors des cours */
-.side{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;margin-top:clamp(28px,4vw,44px)}
-@media (max-width:860px){.side{grid-template-columns:1fr}}
-.side > div{background:var(--paper);border-radius:22px;padding:clamp(24px,3vw,36px)}
-.side h3{font-size:clamp(24px,2.4vw,28px);font-weight:700;margin:0 0 18px;line-height:1.1}
-.repos{list-style:none;margin:0;padding:0;display:grid;gap:12px}
-.repos a{display:block;padding:18px 20px;border-radius:16px;background:var(--tile);color:var(--ink);transition:transform .25s var(--ease)}
-.repos a:hover{text-decoration:none;transform:translateY(-2px)}
-.repos .rn{font-weight:600;font-size:16px;display:flex;gap:10px;align-items:center;margin-bottom:6px;color:var(--blue)}
-.repos .rn svg{width:18px;height:18px;flex:none;color:var(--ink)}
-.repos p{margin:0;color:var(--ink-2);font-size:15.5px}
-.sport{list-style:none;margin:0;padding:0}
-.sport li{padding:14px 0;border-bottom:1px solid var(--rule)}
-.sport li:first-child{padding-top:0}
-.sport b{font-weight:600}
-.sport .num{color:var(--blue);font-weight:600}
-blockquote{margin:24px 0 0;font-size:clamp(19px,1.8vw,22px);font-weight:600;line-height:1.35;letter-spacing:-.015em;color:var(--ink)}
-blockquote p{margin:0}
-
-/* cap */
-.aim{display:block;text-align:center}
-.aim > div:first-child{max-width:46em;margin:0 auto}
-.aim .statement{font-size:clamp(22px,2.6vw,32px)}
-.aim dl{margin:clamp(32px,5vw,48px) 0 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;text-align:left}
-@media (max-width:820px){.aim dl{grid-template-columns:1fr}}
-.aim dl div{background:var(--tile);border-radius:22px;padding:26px}
-.aim dt{font-size:20px;font-weight:700;margin-bottom:6px}
-.aim dd{margin:0;color:var(--ink-2);font-size:16px}
-
-/* contact */
-.contact{background:var(--tile);text-align:center;padding-block:clamp(80px,11vw,140px)}
-.contact h2{font-size:clamp(40px,6vw,72px);font-weight:700;line-height:1.05;letter-spacing:-.03em;margin:0 0 18px}
-.contact p{max-width:34em;margin:0 auto 32px;font-size:clamp(17px,1.6vw,21px);color:var(--ink-2)}
-.email{display:block;font-size:clamp(22px,3vw,32px);font-weight:600;letter-spacing:-.02em;margin:0 0 22px;overflow-wrap:anywhere}
-.contact .ctas{gap:12px}
-.foot{margin-top:72px;padding-top:20px;border-top:1px solid var(--rule);font-size:13px;color:var(--ink-2);text-align:left}
-.foot p{margin:0 0 4px;font-size:13px;max-width:none;color:var(--ink-2)}
-
-/* visionneuse */
-dialog{border:0;padding:0;background:transparent;max-width:min(1280px,94vw);max-height:94vh;overflow:visible}
-dialog::backdrop{background:rgba(0,0,0,.86);backdrop-filter:blur(6px)}
-dialog img{max-width:100%;max-height:80vh;margin:0 auto;background:#fff;border-radius:14px}
-dialog p{font-size:15px;color:#F5F5F7;margin:12px 0 0;text-align:center}
-.lb-btn{position:fixed;font:400 15px/1 var(--sans);padding:12px 16px;border-radius:980px;border:0;background:rgba(245,245,247,.92);color:#1D1D1F;cursor:pointer}
-#lb-close{top:calc(14px + env(safe-area-inset-top,0px));right:14px}
-#lb-prev{left:14px;top:50%}
-#lb-next{right:14px;top:50%}
-@media (max-width:640px){#lb-prev,#lb-next{top:auto;bottom:calc(14px + env(safe-area-inset-bottom,0px))}}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]) .tile img{mix-blend-mode:normal}
-  :root:not([data-theme="light"]) .project:not(.alt) .gal img:not(.cover){mix-blend-mode:normal}
-  :root:not([data-theme="light"]) .project:not(.alt) .gal figure > button:not(.pp){background:#fff}
-  :root:not([data-theme="light"]) .project.alt .xview .top{fill:#26262A}
-  :root:not([data-theme="light"]) .avatar{background:linear-gradient(145deg,#0B3A6E,#06264A)}
-  :root:not([data-theme="light"]) .avatar span{color:#9CCBFF}
-}
-</style>
+<link rel="stylesheet" href="assets/css/site.css">
+<script src="assets/js/site.js" defer onerror="document.documentElement.classList.remove('js')"></script>
 </head>
 <body>
-<a class="skip" href="#profil">Aller au contenu</a>
+<!--
+  Organisation du site : une seule page HTML, découpée en vues (onglets).
+  - Chaque élément portant data-view est une vue ; l'ancre de l'URL choisit celle qui s'affiche
+    (#accueil, #expleo, #milan, #parcours…). Le code est dans assets/js/site.js, les styles dans assets/css/site.css.
+  - Ajouter un projet : copier un <article class="project" … data-view> ci-dessous, lui donner un id unique,
+    ajouter sa tuile dans la section #projets, puis mettre à jour les liens « Projet précédent / suivant » (nav.pager) de ses voisins.
+  - Sans JavaScript, toutes les vues restent visibles les unes sous les autres.
+-->
+<a class="skip" href="#top">Aller au contenu</a>
 <header class="bar">
   <div class="wrap">
-    <a class="mark" href="#top">Ken Flores</a>
+    <a class="mark" href="#accueil">Ken Flores</a>
     <nav aria-label="Sections">
-      <a href="#projets">Projets</a>
-      <a class="opt" href="#milan">Milan</a>
-      <a href="#parcours">Parcours</a>
-      <a class="opt" href="#competences">Compétences</a>
+      <a href="#projets" data-nav="projets">Projets</a>
+      <a href="#milan" data-nav="milan">Milan</a>
+      <a href="#parcours" data-nav="parcours">Parcours</a>
       <a href="#contact">Contact</a>
     </nav>
   </div>
 </header>
 
-<div class="ribbon"><p>En février 2027, je rejoins Safran Electronics &amp; Defense à Fougères pour mon stage de fin d’études. <a class="more" href="#parcours">Voir mon parcours</a></p></div>
+<main id="top" tabindex="-1">
+  <div id="accueil" data-view data-title="">
+  <div class="ribbon"><p>En février 2027, je rejoins Safran Electronics &amp; Defense à Fougères pour mon stage de fin d’études. <a class="more" href="#parcours">Voir mon parcours</a></p></div>
 
-<main id="top">
   <section class="hero" aria-labelledby="nom">
     <div class="wrap">
       <!-- Photo : déposer la photo de profil dans assets/img/ken.jpg et remplacer <span>KF</span> par <img src="assets/img/ken.jpg" alt="Ken Flores"> -->
       <div class="avatar"><span aria-hidden="true">KF</span></div>
-      <h1 id="nom">Ken Flores</h1>
+      <h1 id="nom" tabindex="-1">Ken Flores</h1>
       <p class="headline">Conception mécanique, qualité et industrie du futur.</p>
       <p class="lede">Étudiant-ingénieur Arts et Métiers à l’ECAM LaSalle Lyon, promotion 2027. Je conçois des pièces mécaniques, je vérifie qu’elles tiennent leurs exigences, et je m’intéresse à la façon dont une usine les produit.</p>
       <div class="ctas">
@@ -518,18 +139,72 @@ dialog p{font-size:15px;color:#F5F5F7;margin:12px 0 0;text-align:center}
         <li class="tile wide"><a href="#kbe"><span class="tile-txt"><span class="tile-t">KBE, ma micro-entreprise</span><span class="tile-c">Bureau d’études indépendant, depuis 2022</span><span class="more">Voir le projet</span></span><span class="tile-stat"><span class="big">550+ h</span><span>de conception mécanique pour un client industriel</span></span></a></li>
       </ul>
     </div>
+      <div class="others-band">
+        <div class="wrap">
+      <h3 class="h2 small">Autres projets d’école</h3>
+      <ul class="others">
+        <li>
+          <div><h4>Outillage pour échelles à crinoline</h4><p class="ctx">Client Framatome, équipe de 5, en cours</p></div>
+          <div><p>Comment monter des charges le long d’une échelle à crinoline ? J’ai esquissé une solution chariot à enrouleur, et je porte la solution baudrier porte-charge, l’une des trois retenues. Présentation finale le 9 décembre 2026.</p></div>
+        </li>
+        <li>
+          <div><h4>Siège motorisé Minotor XL</h4><p class="ctx">Client Benoit Systèmes, 2026</p></div>
+          <div><p>Réduire le bruit et le patinage sous forte charge. En binôme, j’ai travaillé sur le contact entre le galet et le pneu : un galet rainuré fait passer la marge d’adhérence au-dessus de la cible de 1,3. Dossier de conception remis en octobre 2026, gain à confirmer par essai.</p>
+            <div class="cote"><span class="v">0,96 → 1,35</span><span class="d"></span><span class="x">Marge d’adhérence, galet actuel puis galet rainuré.</span></div></div>
+        </li>
+        <li>
+          <div><h4>Simulateur de course réglable</h4><p class="ctx">Racing club de l’ECAM, 2024–2025</p></div>
+          <div><p>Un cockpit réglable à tous les gabarits dans 2000 × 1200 mm, qui tient le couple de 25 N·m du volant. J’ai porté le pédalier : croquis, schéma cinématique, comparaison des solutions, prédimensionnement, choix des matériaux et des procédés, chiffrage.</p>
+            <button class="thumb" type="button" data-src="assets/img/simulateur-croquis.jpg" data-cap="Croquis des systèmes de réglage : écran, volant, pédalier"><img src="assets/img/simulateur-croquis.jpg" alt="Planche de croquis des systèmes de réglage du simulateur" loading="lazy"></button></div>
+        </li>
+        <li>
+          <div><h4>Lean Development, étude de cas SOPROVI</h4><p class="ctx">Cours de Lean Development, groupe de 4, en cours</p></div>
+          <div><p>Analyse des clients, utilisateurs et distributeurs, et cartographie des processus selon le référentiel APQC : risques, conformité, résilience.</p></div>
+        </li>
+        <li>
+          <div><h4>Tableau de bord d’un atelier d’usinage</h4><p class="ctx">4<sup>e</sup> année</p></div>
+          <div><p>Construction du tableau de bord de suivi d’un atelier sous Power BI.</p></div>
+        </li>
+        <li>
+          <div><h4>The Fresh Connection</h4><p class="ctx">Jeu de simulation supply chain, 4<sup>e</sup> année</p></div>
+          <div><p>Pilotage d’une chaîne logistique simulée, en équipe.</p></div>
+        </li>
+      </ul>
+        </div>
+      </div>
+  </section>
+
+
+  <section class="sec alt" id="cap" aria-labelledby="cap-t">
+    <div class="wrap aim">
+      <div>
+        <h2 class="h2" id="cap-t">Où je vais</h2>
+        <p class="statement">Partir d’un socle technique solide pour évoluer vers le pilotage d’organisations industrielles, de la conception du produit à la performance des opérations.</p>
+      </div>
+      <dl>
+        <div><dt>Secteurs</dt><dd>Aéronautique et défense, industrie, et fonctions industrielles du luxe.</dd></div>
+        <div><dt>Métiers</dt><dd>Conception mécanique, méthodes et industrialisation, qualité, amélioration continue, supply chain, gestion de projet.</dd></div>
+        <div><dt>À terme</dt><dd>Développer des compétences en management, stratégie et finance pour prendre part aux décisions qui font tourner une usine.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  </div>
 
       <!-- Expleo -->
-      <article class="project" id="expleo" aria-labelledby="expleo-t">
-        <div class="wrap">
-          <header class="p-head">
-            <h3 id="expleo-t">Reconception d’une quille de télécabine avec silentbloc</h3>
-            <dl class="meta">
+      <article class="project" id="expleo" aria-labelledby="expleo-t" data-view data-title="Quille amortie de télécabine" data-nav="projets">
+        <header class="p-hero">
+          <div class="wrap">
+            <nav class="crumbs" aria-label="Fil d’Ariane"><a href="#accueil">Accueil</a><a href="#projets">Projets</a><span aria-current="page">Quille amortie de télécabine</span></nav>
+            <h1 id="expleo-t" tabindex="-1">Reconception d’une quille de télécabine avec silentbloc</h1>
+            <dl class="meta cartouche">
               <dt>Cadre</dt><dd>Expleo pour Sigmacabin (groupe POMA), Gières</dd>
               <dt>Rôle</dt><dd>Stagiaire ingénieur bureau d’études</dd>
               <dt>Période</dt><dd>Juin – septembre 2025</dd>
             </dl>
-          </header>
+          </div>
+        </header>
+        <div class="wrap">
           <figure class="sfig xpanel">
             <svg class="sch" viewBox="0 0 640 360" role="img" aria-labelledby="sch-cabine-t"><title id="sch-cabine-t">Schéma de principe : cabine de télécabine avec sa quille, et vue de détail sur la fixation par serrage, le silentbloc et le jeu de 0,2 mm</title><path class="ln" d="M20,30 L620,22"/><rect class="fl2" x="180" y="17" width="40" height="18" rx="3"/><path class="ln thick" d="M200,35 L200,92"/><rect class="fl" x="110" y="92" width="220" height="170" rx="26"/><path class="fl2" d="M120,96 Q220,74 320,96 Z"/><rect class="fl2" x="128" y="112" width="184" height="66" rx="10"/><path class="thin" d="M220,112 L220,252 M118,244 L322,244"/><path class="tube-o" d="M142,263 L205,302 L235,302 L298,263"/><path class="tube-i" d="M142,263 L205,302 L235,302 L298,263"/><rect class="fl2" x="132" y="254" width="20" height="14" rx="2"/><rect class="fl2" x="288" y="254" width="20" height="14" rx="2"/><circle class="hl" cx="142" cy="263" r="5"/><circle class="hl" cx="298" cy="263" r="5"/><circle class="hls dash" cx="298" cy="263" r="18"/><path class="hls" d="M315,257 L412,222"/><clipPath id="clip-cabine"><circle cx="510" cy="200" r="99"/></clipPath><circle cx="510" cy="200" r="100" class="bub"/><g clip-path="url(#clip-cabine)"><rect class="fl2" x="405" y="130" width="210" height="28"/><path class="thin" d="M405,158 l14,-28 M421,158 l14,-28 M437,158 l14,-28 M453,158 l14,-28 M469,158 l14,-28 M485,158 l14,-28 M501,158 l14,-28 M517,158 l14,-28 M533,158 l14,-28 M549,158 l14,-28 M565,158 l14,-28 M581,158 l14,-28 M597,158 l14,-28 M613,158 l14,-28 "/><path class="tube-o big" d="M510,236 L425,305"/><path class="tube-i big" d="M510,236 L425,305"/><rect class="fl" x="455" y="158" width="110" height="16"/><path class="ln thick" d="M472,122 L472,182 M548,122 L548,182"/><rect class="fl" x="478" y="174" width="10" height="78"/><rect class="fl" x="534" y="174" width="10" height="78"/><circle class="hl" cx="510" cy="236" r="20"/><circle cx="510" cy="236" r="6" class="dot"/><path class="thin" d="M530,244 L530,272 M534,252 L534,272 M512,266 L528,266 M552,266 L536,266"/><path class="arrow" d="M530.0,266.0 L523.0,269.1 L523.0,262.9 Z"/><path class="arrow" d="M534.0,266.0 L541.0,262.9 L541.0,269.1 Z"/><text class="t" x="552" y="271">0,2</text></g><circle class="hls" cx="510" cy="200" r="100"/><g class="mk"><circle cx="220" cy="326" r="13"/><text x="220" y="331">1</text></g><g class="mk"><circle cx="456" cy="214" r="13"/><text x="456" y="219">2</text></g><g class="mk"><circle cx="588" cy="186" r="13"/><text x="588" y="191">3</text></g><g class="mk"><circle cx="592" cy="248" r="13"/><text x="592" y="253">4</text></g></svg>
             <ol class="legend"><li><b>1</b><span>Quille : tube principal en inox 304L, le reste en S355J0</span></li><li><b>2</b><span>Silentbloc déjà en service, réutilisé</span></li><li><b>3</b><span>Fixation par serrage : la cabine, déjà installée, ne pouvait pas être percée</span></li><li><b>4</b><span>Jeu fonctionnel minimal de 0,2 mm, validé par la chaîne de cotes</span></li></ol>
@@ -544,7 +219,7 @@ dialog p{font-size:15px;color:#F5F5F7;margin:12px 0 0;text-align:center}
           </div>
           <div class="p-text">
             <p>La quille est la pièce fixée sous la cabine : elle rigidifie l’ensemble et encaisse le choc à l’entrée en gare. L’existant montrait des limites en flexion et en absorption ; le client voulait un amortissement par silentbloc.</p>
-            <h4>Démarche</h4>
+            <h2>Démarche</h2>
             <ul>
               <li>Besoin flou au départ : j’ai posé les questions d’encombrement, de fixation et de fonction pour cadrer la demande.</li>
               <li><b>Trois géométries</b> proposées, deux retenues car elles réutilisent un silentbloc déjà en service, puis affinées en revue de conception avec le client.</li>
@@ -555,24 +230,32 @@ dialog p{font-size:15px;color:#F5F5F7;margin:12px 0 0;text-align:center}
               <li class="cote"><span class="v">0,2 mm</span><span class="d"></span><span class="x">Jeu fonctionnel minimal validé par la chaîne de cotes.</span></li>
               <li class="cote"><span class="v">3 → 2</span><span class="d"></span><span class="x">Géométries proposées, puis retenues après revue client.</span></li>
             </ul>
-            <h4>En parallèle</h4>
+            <h2>En parallèle</h2>
             <p>Assemblage virtuel complet d’une cabine (projet Du Jas) sous NX à partir du document de configuration : contrôle des jeux, des interférences et des références, anomalies de nomenclature remontées avant validation.</p>
             <ul class="tools"><li>Siemens NX</li><li>Teamcenter</li><li>SAP</li><li>Chaîne de cotes</li><li>Revue de conception</li></ul>
           </div>
         </div>
+        <nav class="pager wrap" aria-label="Autres projets">
+          <a class="pg prev" href="#kbe"><span>Projet précédent</span><b>KBE, ma micro-entreprise</b></a>
+          <a class="pg all" href="#projets"><span>Retour</span><b>Tous les projets</b></a>
+          <a class="pg next" href="#efst"><span>Projet suivant</span><b>Châssis tubulaire paramétré</b></a>
+        </nav>
       </article>
 
       <!-- EFST -->
-      <article class="project alt" id="efst" aria-labelledby="efst-t">
-        <div class="wrap">
-          <header class="p-head">
-            <h3 id="efst-t">Un châssis de Formula Student entièrement paramétré</h3>
-            <dl class="meta">
+      <article class="project" id="efst" aria-labelledby="efst-t" data-view data-title="Châssis tubulaire paramétré" data-nav="projets">
+        <header class="p-hero">
+          <div class="wrap">
+            <nav class="crumbs" aria-label="Fil d’Ariane"><a href="#accueil">Accueil</a><a href="#projets">Projets</a><span aria-current="page">Châssis tubulaire paramétré</span></nav>
+            <h1 id="efst-t" tabindex="-1">Un châssis de Formula Student entièrement paramétré</h1>
+            <dl class="meta cartouche">
               <dt>Cadre</dt><dd>ECAM Formula Student Team, Lyon</dd>
               <dt>Rôle</dt><dd>Ingénieur conception châssis</dd>
               <dt>Période</dt><dd>Depuis 2024</dd>
             </dl>
-          </header>
+          </div>
+        </header>
+        <div class="wrap">
           <figure class="sfig xpanel">
             <svg class="sch" viewBox="0 0 640 320" role="img" aria-labelledby="sch-chassis-t"><title id="sch-chassis-t">Schéma de principe : châssis tubulaire vu de côté, avec arceaux, structure d'impact latéral, gabarit pilote et garde au sol de 150 mm</title><circle class="thin dash" cx="160" cy="243" r="42"/><circle class="thin dash" cx="505" cy="243" r="42"/><path class="ln" d="M80,232 L230,240"/><path class="ln" d="M230,240 L400,238"/><path class="ln" d="M400,238 L570,226"/><path class="ln" d="M88,188 L240,128"/><path class="ln" d="M80,232 L88,188"/><path class="ln" d="M570,226 L560,170"/><path class="ln" d="M412,78 L540,150"/><path class="ln" d="M540,150 L570,226"/><path class="ln" d="M400,238 L560,170"/><path class="ln" d="M88,188 L230,240"/><path class="ln" d="M240,128 L404,150"/><path class="ln" d="M404,150 L560,170"/><path class="ln side" d="M232,190 L402,192"/><path class="ln hoop" d="M230,240 L240,128"/><path class="ln hoop" d="M400,238 L412,78"/><path class="hls dash" d="M200,149 L470,48"/><circle class="fl2" cx="330" cy="125" r="16"/><path class="thin" d="M326,141 L320,205 L250,214 L200,224"/><path class="ln" d="M20,285 L620,285"/><path class="thin" d="M28,285 l-8,10 M42,285 l-8,10 M56,285 l-8,10 M70,285 l-8,10 M84,285 l-8,10 M98,285 l-8,10 M112,285 l-8,10 M126,285 l-8,10 M140,285 l-8,10 M154,285 l-8,10 M168,285 l-8,10 M182,285 l-8,10 M196,285 l-8,10 M210,285 l-8,10 M224,285 l-8,10 M238,285 l-8,10 M252,285 l-8,10 M266,285 l-8,10 M280,285 l-8,10 M294,285 l-8,10 M308,285 l-8,10 M322,285 l-8,10 M336,285 l-8,10 M350,285 l-8,10 M364,285 l-8,10 M378,285 l-8,10 M392,285 l-8,10 M406,285 l-8,10 M420,285 l-8,10 M434,285 l-8,10 M448,285 l-8,10 M462,285 l-8,10 M476,285 l-8,10 M490,285 l-8,10 M504,285 l-8,10 M518,285 l-8,10 M532,285 l-8,10 M546,285 l-8,10 M560,285 l-8,10 M574,285 l-8,10 M588,285 l-8,10 M602,285 l-8,10 M616,285 l-8,10 "/><path class="thin" d="M78,232 L44,232 M58,236 L58,281"/><path class="arrow" d="M58.0,232.0 L61.1,239.0 L54.9,239.0 Z"/><path class="arrow" d="M58.0,285.0 L54.9,278.0 L61.1,278.0 Z"/><text class="t" x="48" y="262" text-anchor="end">150</text><g class="mk"><circle cx="216" cy="112" r="13"/><text x="216" y="117">1</text></g><g class="mk"><circle cx="432" cy="62" r="13"/><text x="432" y="67">2</text></g><g class="mk"><circle cx="360" cy="176" r="13"/><text x="360" y="181">3</text></g><g class="mk"><circle cx="24" cy="210" r="13"/><text x="24" y="215">4</text></g><g class="mk"><circle cx="296" cy="112" r="13"/><text x="296" y="117">5</text></g></svg>
             <ol class="legend"><li><b>1</b><span>Arceau avant, tube Ø 25 × 2,5</span></li><li><b>2</b><span>Arceau principal, tube Ø 25 × 2,5</span></li><li><b>3</b><span>Structure d’impact latéral, tube Ø 20</span></li><li><b>4</b><span>Garde au sol du nez : 150 mm, pour 30 mm minimum</span></li><li><b>5</b><span>Le casque du pilote reste sous la ligne qui relie les deux arceaux</span></li></ol>
@@ -601,19 +284,27 @@ dialog p{font-size:15px;color:#F5F5F7;margin:12px 0 0;text-align:center}
             <ul class="tools"><li>Fusion 360</li><li>Conception paramétrique</li><li>Règlement FS</li><li>Achats</li></ul>
           </div>
         </div>
+        <nav class="pager wrap" aria-label="Autres projets">
+          <a class="pg prev" href="#expleo"><span>Projet précédent</span><b>Quille amortie de télécabine</b></a>
+          <a class="pg all" href="#projets"><span>Retour</span><b>Tous les projets</b></a>
+          <a class="pg next" href="#auraflow"><span>Projet suivant</span><b>Le plein sans sortir de sa voiture</b></a>
+        </nav>
       </article>
 
       <!-- AuraFlow -->
-      <article class="project" id="auraflow" aria-labelledby="aura-t">
-        <div class="wrap">
-          <header class="p-head">
-            <h3 id="aura-t">AuraFlow : faire le plein sans sortir de sa voiture</h3>
-            <dl class="meta">
+      <article class="project" id="auraflow" aria-labelledby="aura-t" data-view data-title="Le plein sans sortir de sa voiture" data-nav="projets">
+        <header class="p-hero">
+          <div class="wrap">
+            <nav class="crumbs" aria-label="Fil d’Ariane"><a href="#accueil">Accueil</a><a href="#projets">Projets</a><span aria-current="page">Le plein sans sortir de sa voiture</span></nav>
+            <h1 id="aura-t" tabindex="-1">AuraFlow : faire le plein sans sortir de sa voiture</h1>
+            <dl class="meta cartouche">
               <dt>Cadre</dt><dd>Projet Léonard, ECAM</dd>
               <dt>Rôle</dt><dd>Responsable commercial</dd>
               <dt>Période</dt><dd>5 – 23 janvier 2026</dd>
             </dl>
-          </header>
+          </div>
+        </header>
+        <div class="wrap">
           <figure class="sfig xpanel">
             <svg class="sch" viewBox="0 0 640 330" role="img" aria-labelledby="sch-aura-t"><title id="sch-aura-t">Schéma de principe : robot cartésien fixé au plafond de la station, caméra de lecture de plaque et véhicule en place</title><path class="ln" d="M20,30 L620,30"/><path class="thin" d="M28,30 l-8,-10 M42,30 l-8,-10 M56,30 l-8,-10 M70,30 l-8,-10 M84,30 l-8,-10 M98,30 l-8,-10 M112,30 l-8,-10 M126,30 l-8,-10 M140,30 l-8,-10 M154,30 l-8,-10 M168,30 l-8,-10 M182,30 l-8,-10 M196,30 l-8,-10 M210,30 l-8,-10 M224,30 l-8,-10 M238,30 l-8,-10 M252,30 l-8,-10 M266,30 l-8,-10 M280,30 l-8,-10 M294,30 l-8,-10 M308,30 l-8,-10 M322,30 l-8,-10 M336,30 l-8,-10 M350,30 l-8,-10 M364,30 l-8,-10 M378,30 l-8,-10 M392,30 l-8,-10 M406,30 l-8,-10 M420,30 l-8,-10 M434,30 l-8,-10 M448,30 l-8,-10 M462,30 l-8,-10 M476,30 l-8,-10 M490,30 l-8,-10 M504,30 l-8,-10 M518,30 l-8,-10 M532,30 l-8,-10 M546,30 l-8,-10 M560,30 l-8,-10 M574,30 l-8,-10 M588,30 l-8,-10 M602,30 l-8,-10 M616,30 l-8,-10 "/><rect class="fl2" x="60" y="34" width="520" height="12" rx="2"/><path class="fl" d="M150,290 L150,250 C152,236 170,228 200,226 L250,222 C270,196 300,186 340,186 L400,186 C430,186 455,204 470,222 L505,228 C518,232 522,244 522,256 L522,290 Z"/><path class="fl2" d="M262,222 C278,202 300,194 330,194 L330,222 Z M340,194 L392,194 C412,194 428,206 440,222 L340,222 Z"/><circle class="fl" cx="210" cy="290" r="24"/><circle class="fl" cx="460" cy="290" r="24"/><rect class="hl" x="414" y="232" width="14" height="13" rx="2"/><rect class="fl" x="440" y="46" width="44" height="20" rx="3"/><rect class="fl" x="455" y="66" width="14" height="162"/><rect class="hl" x="428" y="224" width="34" height="9" rx="2"/><path class="ln" d="M428,228 L420,236"/><path class="ln thick" d="M44,300 L44,126"/><rect class="fl" x="36" y="108" width="36" height="18" rx="3"/><path class="hls dash" d="M72,117 L150,258 M72,123 L150,282"/><path class="fl2" d="M176,300 L188,286 L194,300 Z M226,300 L232,286 L244,300 Z"/><path class="ln" d="M20,300 L620,300"/><path class="thin" d="M28,300 l-8,10 M42,300 l-8,10 M56,300 l-8,10 M70,300 l-8,10 M84,300 l-8,10 M98,300 l-8,10 M112,300 l-8,10 M126,300 l-8,10 M140,300 l-8,10 M154,300 l-8,10 M168,300 l-8,10 M182,300 l-8,10 M196,300 l-8,10 M210,300 l-8,10 M224,300 l-8,10 M238,300 l-8,10 M252,300 l-8,10 M266,300 l-8,10 M280,300 l-8,10 M294,300 l-8,10 M308,300 l-8,10 M322,300 l-8,10 M336,300 l-8,10 M350,300 l-8,10 M364,300 l-8,10 M378,300 l-8,10 M392,300 l-8,10 M406,300 l-8,10 M420,300 l-8,10 M434,300 l-8,10 M448,300 l-8,10 M462,300 l-8,10 M476,300 l-8,10 M490,300 l-8,10 M504,300 l-8,10 M518,300 l-8,10 M532,300 l-8,10 M546,300 l-8,10 M560,300 l-8,10 M574,300 l-8,10 M588,300 l-8,10 M602,300 l-8,10 M616,300 l-8,10 "/><path class="thin" d="M584,170 L620,170 M584,170 L584,134 M584,170 L566,188"/><path class="arrow" d="M620.0,170.0 L613.0,173.2 L613.0,166.8 Z"/><path class="arrow" d="M584.0,134.0 L587.1,141.0 L580.9,141.0 Z"/><path class="arrow" d="M566.0,188.0 L568.7,180.8 L573.2,185.3 Z"/><text class="t" x="624" y="186">X</text><text class="t" x="592" y="134">Z</text><text class="t" x="552" y="204">Y</text><g class="mk"><circle cx="110" cy="66" r="13"/><text x="110" y="71">1</text></g><g class="mk"><circle cx="492" cy="142" r="13"/><text x="492" y="147">2</text></g><g class="mk"><circle cx="470" cy="254" r="13"/><text x="470" y="259">3</text></g><g class="mk"><circle cx="398" cy="262" r="13"/><text x="398" y="267">4</text></g><g class="mk"><circle cx="54" cy="90" r="13"/><text x="54" y="95">5</text></g><g class="mk"><circle cx="210" cy="324" r="13"/><text x="210" y="329">6</text></g></svg>
             <ol class="legend"><li><b>1</b><span>Rail X fixé au plafond de la station</span></li><li><b>2</b><span>Axe vertical Z ; l’axe Y amène la pince vers le véhicule</span></li><li><b>3</b><span>Pince qui manipule le pistolet standard</span></li><li><b>4</b><span>Trappe à carburant</span></li><li><b>5</b><span>Caméra de lecture de plaque : identifie le véhicule et la position de sa trappe</span></li><li><b>6</b><span>Butées de positionnement au sol</span></li></ol>
@@ -632,7 +323,7 @@ dialog p{font-size:15px;color:#F5F5F7;margin:12px 0 0;text-align:center}
           <div class="p-text">
             <p>Trois semaines à dix pour monter une start-up fictive de A à Z. Le besoin : faire le plein reste pénible, voire impossible, pour les personnes à mobilité réduite.</p>
             <p>La solution retenue : un robot cartésien XYZ fixé au plafond de la station manipule le pistolet standard. Une caméra de lecture de plaque identifie le véhicule et la position de sa trappe ; le paiement passe par une application.</p>
-            <h4>Ce que j’ai fait</h4>
+            <h2>Ce que j’ai fait</h2>
             <ul>
               <li>Cahier des charges marketing et analyse technique du produit.</li>
               <li>Prédimensionnement de la caméra de lecture de plaque et du système de facturation, avec Guilhem.</li>
@@ -645,19 +336,27 @@ dialog p{font-size:15px;color:#F5F5F7;margin:12px 0 0;text-align:center}
           </div>
           <p class="credit">Modèles 3D de l’équipe du projet Léonard.</p>
         </div>
+        <nav class="pager wrap" aria-label="Autres projets">
+          <a class="pg prev" href="#efst"><span>Projet précédent</span><b>Châssis tubulaire paramétré</b></a>
+          <a class="pg all" href="#projets"><span>Retour</span><b>Tous les projets</b></a>
+          <a class="pg next" href="#gem-gcr"><span>Projet suivant</span><b>Habitat de ballon stratosphérique</b></a>
+        </nav>
       </article>
 
       <!-- GEM-GCR -->
-      <article class="project alt" id="gem-gcr" aria-labelledby="gem-t">
-        <div class="wrap">
-          <header class="p-head">
-            <h3 id="gem-t">Un habitat pour cellules humaines, à la limite de l’espace</h3>
-            <dl class="meta">
+      <article class="project" id="gem-gcr" aria-labelledby="gem-t" data-view data-title="Habitat de ballon stratosphérique" data-nav="projets">
+        <header class="p-hero">
+          <div class="wrap">
+            <nav class="crumbs" aria-label="Fil d’Ariane"><a href="#accueil">Accueil</a><a href="#projets">Projets</a><span aria-current="page">Habitat de ballon stratosphérique</span></nav>
+            <h1 id="gem-t" tabindex="-1">Un habitat pour cellules humaines, à la limite de l’espace</h1>
+            <dl class="meta cartouche">
               <dt>Cadre</dt><dd>PoliSpace, Politecnico di Milano</dd>
               <dt>Rôle</dt><dd>Ingénieur structures</dd>
               <dt>Période</dt><dd>2026</dd>
             </dl>
-          </header>
+          </div>
+        </header>
+        <div class="wrap">
           <figure class="xfig xpanel" id="xfig">
             <svg class="xview" viewBox="0 0 480 680" role="img" aria-labelledby="xview-t"><title id="xview-t">Vue éclatée de l'habitat GEM-GCR : couvercle et joint, enveloppe aluminium, isolant XPS, cylindre interne en ABS de 200 mm de diamètre et de hauteur.</title>
     <g class="part" data-part="abs" style="--dy:0px">
@@ -721,7 +420,7 @@ dialog p{font-size:15px;color:#F5F5F7;margin:12px 0 0;text-align:center}
               <p>Notre proposition est présélectionnée pour l’atelier de sélection REXUS/BEXUS de l’ESA, à l’ESTEC (Pays-Bas), du 1<sup>er</sup> au 3 décembre 2026.</p>
             </div>
             <p>Le projet GEM-GCR envoie des cultures de cellules humaines dans la stratosphère, sous ballon, pour mesurer les mutations dues aux rayons cosmiques galactiques. Pendant le vol, l’habitat doit les garder à 37 °C et à 1 atm.</p>
-            <h4>Ce que j’ai fait</h4>
+            <h2>Ce que j’ai fait</h2>
             <ul>
               <li>Passage d’une boîte rectangulaire à un <b>cylindre modulaire</b> : plus simple à imprimer et à assembler, plus résistant à la pression et aux chocs.</li>
               <li>Architecture en couches : cylindre interne en ABS imprimé, isolant XPS, enveloppe en aluminium, joint dimensionné selon la précharge des vis.</li>
@@ -738,19 +437,27 @@ dialog p{font-size:15px;color:#F5F5F7;margin:12px 0 0;text-align:center}
             <ul class="tools"><li>Fusion 360</li><li>Impression 3D ABS et PETG</li><li>Dimensionnement</li><li>Dossier ESA</li><li>Anglais</li></ul>
           </div>
         </div>
+        <nav class="pager wrap" aria-label="Autres projets">
+          <a class="pg prev" href="#auraflow"><span>Projet précédent</span><b>Le plein sans sortir de sa voiture</b></a>
+          <a class="pg all" href="#projets"><span>Retour</span><b>Tous les projets</b></a>
+          <a class="pg next" href="#mat-rotor"><span>Projet suivant</span><b>Mât rotor d’hélicoptère</b></a>
+        </nav>
       </article>
 
       <!-- Mât rotor -->
-      <article class="project" id="mat-rotor" aria-labelledby="mat-t">
-        <div class="wrap">
-          <header class="p-head">
-            <h3 id="mat-t">Le mât rotor d’un hélicoptère, vérifié par le calcul et par l’essai</h3>
-            <dl class="meta">
+      <article class="project" id="mat-rotor" aria-labelledby="mat-t" data-view data-title="Mât rotor d’hélicoptère" data-nav="projets">
+        <header class="p-hero">
+          <div class="wrap">
+            <nav class="crumbs" aria-label="Fil d’Ariane"><a href="#accueil">Accueil</a><a href="#projets">Projets</a><span aria-current="page">Mât rotor d’hélicoptère</span></nav>
+            <h1 id="mat-t" tabindex="-1">Le mât rotor d’un hélicoptère, vérifié par le calcul et par l’essai</h1>
+            <dl class="meta cartouche">
               <dt>Cadre</dt><dd>Machine Design, Politecnico di Milano</dd>
               <dt>Rôle</dt><dd>Calculs et simulation, groupe de trois</dd>
               <dt>Période</dt><dd>Fév. – juil. 2026</dd>
             </dl>
-          </header>
+          </div>
+        </header>
+        <div class="wrap">
           <figure class="sfig xpanel">
             <svg class="sch" viewBox="0 0 760 290" role="img" aria-labelledby="sch-heli-t"><title id="sch-heli-t">Schéma de principe : hélicoptère vu de côté, avec une vue de détail sur le mât rotor et sa contrainte de Von Mises</title><path class="fl" d="M70,200 C70,150 120,130 180,128 L300,128 C330,128 345,150 345,175 L345,205 C345,225 320,232 290,232 L150,232 C100,232 70,225 70,200 Z"/><path class="fl2" d="M88,192 C92,162 120,146 160,143 L160,192 Z"/><path class="fl" d="M340,162 L520,171 L520,183 L340,200 Z"/><path class="fl" d="M503,172 L524,122 L540,122 L533,178 Z"/><circle class="thin" cx="535" cy="140" r="22"/><path class="ln" d="M120,262 L312,262 M112,262 Q98,262 98,252 M150,232 L145,262 M282,232 L287,262"/><rect class="hl" x="231" y="96" width="12" height="32" rx="2"/><ellipse class="fl" cx="237" cy="95" rx="15" ry="5"/><path class="ln thick" d="M58,90 L416,97"/><circle class="hls dash" cx="237" cy="112" r="22"/><path class="hls" d="M259,108 L569,101"/><clipPath id="clip-heli"><circle cx="650" cy="105" r="80"/></clipPath><circle cx="650" cy="105" r="80" fill="#fff"/><image href="assets/img/milan-mat-zoom.jpg" x="570" y="25" width="160" height="160" clip-path="url(#clip-heli)" preserveAspectRatio="xMidYMid slice"/><circle class="hls" cx="650" cy="105" r="80"/><g class="mk"><circle cx="192" cy="116" r="13"/><text x="192" y="121">1</text></g><g class="mk"><circle cx="712" cy="182" r="13"/><text x="712" y="187">2</text></g></svg>
             <ol class="legend"><li><b>1</b><span>Mât rotor principal, vérifié en statique, en fatigue et au flambement</span></li><li><b>2</b><span>Vue de détail : zone la plus sollicitée, modèle Abaqus</span></li></ol>
@@ -775,19 +482,27 @@ dialog p{font-size:15px;color:#F5F5F7;margin:12px 0 0;text-align:center}
           <ul class="tools"><li>Abaqus</li><li>Von Mises</li><li>Tresca</li><li>Sines</li><li>Flambement d’Euler</li><li>Cercle de Mohr</li></ul>
           </div>
         </div>
+        <nav class="pager wrap" aria-label="Autres projets">
+          <a class="pg prev" href="#gem-gcr"><span>Projet précédent</span><b>Habitat de ballon stratosphérique</b></a>
+          <a class="pg all" href="#projets"><span>Retour</span><b>Tous les projets</b></a>
+          <a class="pg next" href="#fradem"><span>Projet suivant</span><b>Trois ouvrages en acier</b></a>
+        </nav>
       </article>
 
       <!-- FRADEM -->
-      <article class="project alt" id="fradem" aria-labelledby="fradem-t">
-        <div class="wrap">
-          <header class="p-head">
-            <h3 id="fradem-t">Du bureau d’études à l’atelier : trois ouvrages en acier</h3>
-            <dl class="meta">
+      <article class="project" id="fradem" aria-labelledby="fradem-t" data-view data-title="Trois ouvrages en acier" data-nav="projets">
+        <header class="p-hero">
+          <div class="wrap">
+            <nav class="crumbs" aria-label="Fil d’Ariane"><a href="#accueil">Accueil</a><a href="#projets">Projets</a><span aria-current="page">Trois ouvrages en acier</span></nav>
+            <h1 id="fradem-t" tabindex="-1">Du bureau d’études à l’atelier : trois ouvrages en acier</h1>
+            <dl class="meta cartouche">
               <dt>Cadre</dt><dd>Fradem, construction métallique pour les carrières, Domène</dd>
               <dt>Rôle</dt><dd>Stage de BTS, 8 semaines</dd>
               <dt>Période</dt><dd>Mai – juillet 2022</dd>
             </dl>
-          </header>
+          </div>
+        </header>
+        <div class="wrap">
           <figure class="sfig xpanel">
             <svg class="sch" viewBox="0 0 640 340" role="img" aria-labelledby="sch-mat-t"><title id="sch-mat-t">Schéma de principe : mât de brise-roche avec crinoline, passerelle, bras hydraulique, ancrage et efforts</title><rect class="fl2" x="130" y="300" width="140" height="30"/><path class="ln dash" d="M160,292 L160,324 M172,292 L172,324 M228,292 L228,324 M240,292 L240,324"/><rect class="fl2" x="150" y="290" width="100" height="10"/><rect class="fl" x="180" y="92" width="40" height="198"/><path class="ln" d="M228,110 L228,290 M248,110 L248,290"/><path class="thin" d="M228,118 L248,118 M228,136 L248,136 M228,154 L248,154 M228,172 L248,172 M228,190 L248,190 M228,208 L248,208 M228,226 L248,226 M228,244 L248,244 M228,262 L248,262 M228,280 L248,280 "/><path class="thin" d="M226,140 C276,132 278,152 226,148 M226,170 C276,162 278,182 226,178 M226,200 C276,192 278,212 226,208 M226,230 C276,222 278,242 226,238 M226,260 C276,252 278,272 226,268 M272,136 L272,262"/><rect class="fl2" x="150" y="84" width="150" height="8"/><path class="thin" d="M150,84 L150,62 M300,84 L300,62 M150,62 L300,62 M225,84 L225,62"/><path class="tube-o" d="M212,78 L330,40 L440,120"/><path class="tube-i" d="M212,78 L330,40 L440,120"/><circle class="fl" cx="212" cy="78" r="6"/><circle class="fl" cx="330" cy="40" r="6"/><rect class="hl" x="430" y="118" width="22" height="52" rx="3"/><path class="dot" d="M436,170 L446,170 L441,190 Z"/><path class="fl2" d="M380,300 L398,258 L428,242 L470,252 L500,300 Z"/><path class="thin" d="M410,300 L420,262 M445,300 L452,256 M470,300 L476,268"/><path class="ln" d="M20,300 L130,300"/><path class="thin" d="M28,300 l-8,10 M42,300 l-8,10 M56,300 l-8,10 M70,300 l-8,10 M84,300 l-8,10 M98,300 l-8,10 M112,300 l-8,10 M126,300 l-8,10 "/><path class="ln" d="M270,300 L620,300"/><path class="thin" d="M278,300 l-8,10 M292,300 l-8,10 M306,300 l-8,10 M320,300 l-8,10 M334,300 l-8,10 M348,300 l-8,10 M362,300 l-8,10 M376,300 l-8,10 M390,300 l-8,10 M404,300 l-8,10 M418,300 l-8,10 M432,300 l-8,10 M446,300 l-8,10 M460,300 l-8,10 M474,300 l-8,10 M488,300 l-8,10 M502,300 l-8,10 M516,300 l-8,10 M530,300 l-8,10 M544,300 l-8,10 M558,300 l-8,10 M572,300 l-8,10 M586,300 l-8,10 M600,300 l-8,10 M614,300 l-8,10 "/><path class="thin" d="M104,130 L168,130"/><path class="arrow" d="M172.0,130.0 L165.0,133.2 L165.0,126.8 Z"/><path class="thin" d="M104,170 L168,170"/><path class="arrow" d="M172.0,170.0 L165.0,173.2 L165.0,166.8 Z"/><path class="thin" d="M104,210 L168,210"/><path class="arrow" d="M172.0,210.0 L165.0,213.2 L165.0,206.8 Z"/><path class="thin" d="M470,214 L470,176"/><path class="arrow" d="M470.0,172.0 L473.6,180.0 L466.4,180.0 Z"/><path class="hls" d="M164,290 A40,40 0 0 1 236,290"/><path class="arrow hlf" d="M236,290 L228,280 L242,281 Z"/><text class="t" x="34" y="276">65 900 N·m</text><g class="mk"><circle cx="160" cy="246" r="13"/><text x="160" y="251">1</text></g><g class="mk"><circle cx="300" cy="200" r="13"/><text x="300" y="205">2</text></g><g class="mk"><circle cx="318" cy="22" r="13"/><text x="318" y="27">3</text></g><g class="mk"><circle cx="292" cy="320" r="13"/><text x="292" y="325">4</text></g></svg>
             <ol class="legend"><li><b>1</b><span>Mât, dimensionné au moment à la base : 65 900 N·m</span></li><li><b>2</b><span>Crinoline et passerelle, selon la norme NF E 85-016</span></li><li><b>3</b><span>Bras et brise-roche hydraulique</span></li><li><b>4</b><span>Ancrage : 6 goujons pour 4 requis</span></li></ol>
@@ -803,32 +518,40 @@ dialog p{font-size:15px;color:#F5F5F7;margin:12px 0 0;text-align:center}
           </div>
           <div class="p-text">
             <p>J’ai pris en charge les petits projets du bureau d’études, de la 3D à la mise en plan avec débits pour la découpe plasma, et j’ai fabriqué une partie de mes pièces à l’atelier.</p>
-            <h4>Mât de brise-roche hydraulique</h4>
+            <h2>Mât de brise-roche hydraulique</h2>
             <p>Mât, crinoline et passerelle selon la norme NF E 85-016. Calcul du moment à la base (statique, choc du brise-roche, vent) pour dimensionner l’ancrage.</p>
             <ul class="cotes">
               <li class="cote"><span class="v">65 900 N·m</span><span class="d"></span><span class="x">Moment maximal à la base du mât.</span></li>
               <li class="cote"><span class="v">8 436 &lt; 13 900 N</span><span class="d"></span><span class="x">Effort par goujon face à la résistance fabricant, avec 6 goujons pour 4 requis.</span></li>
             </ul>
-            <h4>Rack à tôle et hotte d’aspiration</h4>
+            <h2>Rack à tôle et hotte d’aspiration</h2>
             <p>Un rack à tôle 4000 × 2000 en cornières, qui gagne de la hauteur entre étages, dont j’ai soudé un plateau. Une hotte en tôle pliée de 3 mm, à faces interchangeables, pour un client.</p>
-            <h4>Et ensuite</h4>
+            <h2>Et ensuite</h2>
             <p>La même année, j’ai créé ma micro-entreprise pour continuer à travailler avec Fradem en indépendant. <a class="more" href="#kbe">Voir KBE</a></p>
             <ul class="tools"><li>SolidWorks</li><li>AutoCAD</li><li>Mise en plan</li><li>Débit plasma</li><li>Soudure</li></ul>
           </div>
         </div>
+        <nav class="pager wrap" aria-label="Autres projets">
+          <a class="pg prev" href="#mat-rotor"><span>Projet précédent</span><b>Mât rotor d’hélicoptère</b></a>
+          <a class="pg all" href="#projets"><span>Retour</span><b>Tous les projets</b></a>
+          <a class="pg next" href="#kbe"><span>Projet suivant</span><b>KBE, ma micro-entreprise</b></a>
+        </nav>
       </article>
 
       <!-- KBE -->
-      <article class="project" id="kbe" aria-labelledby="kbe-t">
-        <div class="wrap">
-          <header class="p-head">
-            <h3 id="kbe-t">KBE, ma micro-entreprise de conception mécanique</h3>
-            <dl class="meta">
+      <article class="project" id="kbe" aria-labelledby="kbe-t" data-view data-title="KBE, ma micro-entreprise" data-nav="projets">
+        <header class="p-hero">
+          <div class="wrap">
+            <nav class="crumbs" aria-label="Fil d’Ariane"><a href="#accueil">Accueil</a><a href="#projets">Projets</a><span aria-current="page">KBE, ma micro-entreprise</span></nav>
+            <h1 id="kbe-t" tabindex="-1">KBE, ma micro-entreprise de conception mécanique</h1>
+            <dl class="meta cartouche">
               <dt>Rôle</dt><dd>Fondateur</dd>
               <dt>Client principal</dt><dd>Fradem, Domène</dd>
               <dt>Période</dt><dd>Depuis 2022</dd>
             </dl>
-          </header>
+          </div>
+        </header>
+        <div class="wrap">
           <ol class="flow" aria-label="Déroulement d’une mission">
             <li><b>1</b><span class="ft">Relevé sur site</span><span class="fd">Prise de cotes sur un site de carrière, jusqu’à l’intérieur d’un crible vibrant.</span></li>
             <li><b>2</b><span class="ft">Modèle 3D</span><span class="fd">Reconstitution de la géométrie existante.</span></li>
@@ -845,54 +568,28 @@ dialog p{font-size:15px;color:#F5F5F7;margin:12px 0 0;text-align:center}
             <ul class="tools"><li>Modélisation 3D</li><li>Mise en plan</li><li>Relevé de cotes</li><li>Relation client</li></ul>
           </div>
         </div>
+        <nav class="pager wrap" aria-label="Autres projets">
+          <a class="pg prev" href="#fradem"><span>Projet précédent</span><b>Trois ouvrages en acier</b></a>
+          <a class="pg all" href="#projets"><span>Retour</span><b>Tous les projets</b></a>
+          <a class="pg next" href="#expleo"><span>Projet suivant</span><b>Quille amortie de télécabine</b></a>
+        </nav>
       </article>
 
-      <div class="others-band">
-        <div class="wrap">
-      <h3 class="h2 small">Autres projets d’école</h3>
-      <ul class="others">
-        <li>
-          <div><h4>Outillage pour échelles à crinoline</h4><p class="ctx">Client Framatome, équipe de 5, en cours</p></div>
-          <div><p>Comment monter des charges le long d’une échelle à crinoline ? J’ai esquissé une solution chariot à enrouleur, et je porte la solution baudrier porte-charge, l’une des trois retenues. Présentation finale le 9 décembre 2026.</p></div>
-        </li>
-        <li>
-          <div><h4>Siège motorisé Minotor XL</h4><p class="ctx">Client Benoit Systèmes, 2026</p></div>
-          <div><p>Réduire le bruit et le patinage sous forte charge. En binôme, j’ai travaillé sur le contact entre le galet et le pneu : un galet rainuré fait passer la marge d’adhérence au-dessus de la cible de 1,3. Dossier de conception remis en octobre 2026, gain à confirmer par essai.</p>
-            <div class="cote"><span class="v">0,96 → 1,35</span><span class="d"></span><span class="x">Marge d’adhérence, galet actuel puis galet rainuré.</span></div></div>
-        </li>
-        <li>
-          <div><h4>Simulateur de course réglable</h4><p class="ctx">Racing club de l’ECAM, 2024–2025</p></div>
-          <div><p>Un cockpit réglable à tous les gabarits dans 2000 × 1200 mm, qui tient le couple de 25 N·m du volant. J’ai porté le pédalier : croquis, schéma cinématique, comparaison des solutions, prédimensionnement, choix des matériaux et des procédés, chiffrage.</p>
-            <button class="thumb" type="button" data-src="assets/img/simulateur-croquis.jpg" data-cap="Croquis des systèmes de réglage : écran, volant, pédalier"><img src="assets/img/simulateur-croquis.jpg" alt="Planche de croquis des systèmes de réglage du simulateur" loading="lazy"></button></div>
-        </li>
-        <li>
-          <div><h4>Lean Development, étude de cas SOPROVI</h4><p class="ctx">Cours de Lean Development, groupe de 4, en cours</p></div>
-          <div><p>Analyse des clients, utilisateurs et distributeurs, et cartographie des processus selon le référentiel APQC : risques, conformité, résilience.</p></div>
-        </li>
-        <li>
-          <div><h4>Tableau de bord d’un atelier d’usinage</h4><p class="ctx">4<sup>e</sup> année</p></div>
-          <div><p>Construction du tableau de bord de suivi d’un atelier sous Power BI.</p></div>
-        </li>
-        <li>
-          <div><h4>The Fresh Connection</h4><p class="ctx">Jeu de simulation supply chain, 4<sup>e</sup> année</p></div>
-          <div><p>Pilotage d’une chaîne logistique simulée, en équipe.</p></div>
-        </li>
-      </ul>
-        </div>
-      </div>
-  </section>
-
-  <section class="sec alt" id="milan" aria-labelledby="milan-t">
+  <div id="milan" data-view data-title="Un semestre à Milan" data-nav="milan">
+  <header class="p-hero">
     <div class="wrap">
-      <div class="sec-head">
-        <h2 class="h2" id="milan-t">Un semestre à Milan</h2>
-        <p class="intro-p">De février à juillet 2026, au Politecnico di Milano, en anglais : quatre cours d’ingénierie aérospatiale, chacun avec ses exercices, ses travaux pratiques ou son projet.</p>
-      </div>
+      <nav class="crumbs" aria-label="Fil d’Ariane"><a href="#accueil">Accueil</a><span aria-current="page">Milan</span></nav>
+      <h1 id="milan-t" tabindex="-1">Un semestre à Milan</h1>
+      <p class="p-lede">De février à juillet 2026, au Politecnico di Milano, en anglais : quatre cours d’ingénierie aérospatiale, chacun avec ses exercices, ses travaux pratiques ou son projet.</p>
+    </div>
+  </header>
+  <section class="sec alt" aria-labelledby="milan-t">
+    <div class="wrap">
       <div class="courses">
         <article class="course">
           <div class="course-vis"><svg class="sch" viewBox="0 0 480 300" role="img" aria-labelledby="sch-lam-t"><title id="sch-lam-t">Schéma : stratifié composite [+45/−45]s éclaté, pli par pli, sous traction</title><path class="fl2" d="M160.0,96.0 L390.0,96.0 L390.0,103.0 L160.0,103.0 Z"/><path class="fl" d="M70.0,34.0 L300.0,34.0 L390.0,96.0 L160.0,96.0 Z"/><path class="hls" d="M289.6,34.0 L304.1,36.8 M265.2,34.0 L313.6,43.4 M240.8,34.0 L323.2,50.0 M216.4,34.0 L332.7,56.5 M192.0,34.0 L342.3,63.1 M167.6,34.0 L351.8,69.7 M143.2,34.0 L361.4,76.3 M118.8,34.0 L370.9,82.8 M94.4,34.0 L380.5,89.4 M70.0,34.0 L390.0,96.0 M79.5,40.6 L365.6,96.0 M89.1,47.2 L341.2,96.0 M98.6,53.7 L316.8,96.0 M108.2,60.3 L292.4,96.0 M117.7,66.9 L268.0,96.0 M127.3,73.5 L243.6,96.0 M136.8,80.0 L219.2,96.0 M146.4,86.6 L194.8,96.0 M155.9,93.2 L170.4,96.0"/><text class="t" x="405" y="72">+45°</text><path class="fl2" d="M160.0,158.0 L390.0,158.0 L390.0,165.0 L160.0,165.0 Z"/><path class="fl" d="M70.0,96.0 L300.0,96.0 L390.0,158.0 L160.0,158.0 Z"/><path class="thin" d="M74.1,98.8 L80.4,96.0 M83.6,105.4 L104.8,96.0 M93.2,112.0 L129.2,96.0 M102.7,118.5 L153.6,96.0 M112.3,125.1 L178.0,96.0 M121.8,131.7 L202.4,96.0 M131.4,138.3 L226.8,96.0 M140.9,144.8 L251.2,96.0 M150.5,151.4 L275.6,96.0 M160.0,158.0 L300.0,96.0 M184.4,158.0 L309.5,102.6 M208.8,158.0 L319.1,109.2 M233.2,158.0 L328.6,115.7 M257.6,158.0 L338.2,122.3 M282.0,158.0 L347.7,128.9 M306.4,158.0 L357.3,135.5 M330.8,158.0 L366.8,142.0 M355.2,158.0 L376.4,148.6 M379.6,158.0 L385.9,155.2"/><text class="t" x="405" y="134">−45°</text><path class="fl2" d="M160.0,220.0 L390.0,220.0 L390.0,227.0 L160.0,227.0 Z"/><path class="fl" d="M70.0,158.0 L300.0,158.0 L390.0,220.0 L160.0,220.0 Z"/><path class="thin" d="M74.1,160.8 L80.4,158.0 M83.6,167.4 L104.8,158.0 M93.2,174.0 L129.2,158.0 M102.7,180.5 L153.6,158.0 M112.3,187.1 L178.0,158.0 M121.8,193.7 L202.4,158.0 M131.4,200.3 L226.8,158.0 M140.9,206.8 L251.2,158.0 M150.5,213.4 L275.6,158.0 M160.0,220.0 L300.0,158.0 M184.4,220.0 L309.5,164.6 M208.8,220.0 L319.1,171.2 M233.2,220.0 L328.6,177.7 M257.6,220.0 L338.2,184.3 M282.0,220.0 L347.7,190.9 M306.4,220.0 L357.3,197.5 M330.8,220.0 L366.8,204.0 M355.2,220.0 L376.4,210.6 M379.6,220.0 L385.9,217.2"/><text class="t" x="405" y="196">−45°</text><path class="fl2" d="M160.0,282.0 L390.0,282.0 L390.0,289.0 L160.0,289.0 Z"/><path class="fl" d="M70.0,220.0 L300.0,220.0 L390.0,282.0 L160.0,282.0 Z"/><path class="hls" d="M289.6,220.0 L304.1,222.8 M265.2,220.0 L313.6,229.4 M240.8,220.0 L323.2,236.0 M216.4,220.0 L332.7,242.5 M192.0,220.0 L342.3,249.1 M167.6,220.0 L351.8,255.7 M143.2,220.0 L361.4,262.3 M118.8,220.0 L370.9,268.8 M94.4,220.0 L380.5,275.4 M70.0,220.0 L390.0,282.0 M79.5,226.6 L365.6,282.0 M89.1,233.2 L341.2,282.0 M98.6,239.7 L316.8,282.0 M108.2,246.3 L292.4,282.0 M117.7,252.9 L268.0,282.0 M127.3,259.5 L243.6,282.0 M136.8,266.0 L219.2,282.0 M146.4,272.6 L194.8,282.0 M155.9,279.2 L170.4,282.0"/><text class="t" x="405" y="258">+45°</text><path class="thin" d="M40,170 L8,170 M420,170 L452,170"/><path class="arrow" d="M4,170 l10,-5 l0,10 Z M456,170 l-10,-5 l0,10 Z"/></svg></div>
           <div class="course-body">
-            <h3>Structural Analysis of Aerospace Vehicles</h3>
+            <h2>Structural Analysis of Aerospace Vehicles</h2>
             <p class="prof">Prof. Alessandro Airoldi</p>
             <p><b>Le cours.</b> Les éléments finis appliqués aux structures d’avion (plaques de Mindlin, verrouillage en cisaillement, convergence), les composites (théorie des stratifiés, fissuration de la matrice, délaminage, essai DCB), les marges de sécurité, les entailles, le flambement des panneaux raidis.</p>
             <p><b>Ce qu’on a fait.</b> 8 travaux pratiques en éléments finis : plaques composites et sandwich, rivets, instabilité, intégrité structurelle. Examen écrit, puis oral.</p>
@@ -902,7 +599,7 @@ dialog p{font-size:15px;color:#F5F5F7;margin:12px 0 0;text-align:center}
         <article class="course">
           <div class="course-vis"><svg class="sch" viewBox="0 0 480 300" role="img" aria-labelledby="sch-sec-t"><title id="sch-sec-t">Schéma : section type d'aile à deux degrés de liberté, pompage h et tangage α, avec ressorts kh et kα, sous un vent U</title><path class="ln" d="M120,286 L360,286"/><path class="thin" d="M128,286 l-8,10 M142,286 l-8,10 M156,286 l-8,10 M170,286 l-8,10 M184,286 l-8,10 M198,286 l-8,10 M212,286 l-8,10 M226,286 l-8,10 M240,286 l-8,10 M254,286 l-8,10 M268,286 l-8,10 M282,286 l-8,10 M296,286 l-8,10 M310,286 l-8,10 M324,286 l-8,10 M338,286 l-8,10 M352,286 l-8,10 "/><path class="ln" d="M220,162 L220,186 L228,192 L212,201 L228,210 L212,219 L228,228 L212,237 L228,246 L212,255 L228,264 L220,276 L220,286"/><text class="t" x="238" y="236">k<tspan class="sub" dy="5">h</tspan></text><g transform="rotate(-9 220 150)"><path class="fl" d="M110,150 C118,126 190,121 250,128 C305,134 352,145 392,150 C352,154 305,160 250,164 C190,171 118,172 110,150 Z"/><path class="thin dash" d="M100,150 L410,150"/></g><path class="hls" d="M224.0,150.0 L224.0,150.2 L224.1,150.4 L224.1,150.5 L224.1,150.7 L224.1,150.9 L224.1,151.1 L224.1,151.3 L224.1,151.5 L224.1,151.7 L224.0,151.9 L224.0,152.1 L223.9,152.3 L223.9,152.5 L223.8,152.7 L223.7,152.9 L223.6,153.1 L223.5,153.2 L223.4,153.4 L223.3,153.6 L223.1,153.8 L223.0,153.9 L222.8,154.1 L222.7,154.3 L222.5,154.4 L222.3,154.6 L222.1,154.7 L221.9,154.8 L221.7,155.0 L221.5,155.1 L221.3,155.2 L221.1,155.3 L220.9,155.4 L220.7,155.4 L220.4,155.5 L220.2,155.6 L219.9,155.6 L219.7,155.6 L219.4,155.7 L219.2,155.7 L218.9,155.7 L218.7,155.7 L218.4,155.7 L218.1,155.6 L217.9,155.6 L217.6,155.5 L217.4,155.5 L217.1,155.4 L216.8,155.3 L216.6,155.2 L216.3,155.0 L216.1,154.9 L215.8,154.8 L215.6,154.6 L215.4,154.5 L215.2,154.3 L214.9,154.1 L214.7,153.9 L214.5,153.7 L214.3,153.5 L214.1,153.2 L214.0,153.0 L213.8,152.7 L213.6,152.5 L213.5,152.2 L213.4,151.9 L213.2,151.6 L213.1,151.4 L213.0,151.1 L212.9,150.8 L212.9,150.4 L212.8,150.1 L212.8,149.8 L212.7,149.5 L212.7,149.2 L212.7,148.8 L212.7,148.5 L212.8,148.2 L212.8,147.9 L212.9,147.5 L212.9,147.2 L213.0,146.9 L213.1,146.6 L213.3,146.2 L213.4,145.9 L213.5,145.6 L213.7,145.3 L213.9,145.0 L214.1,144.7 L214.3,144.4 L214.5,144.1 L214.7,143.9 L215.0,143.6 L215.2,143.4 L215.5,143.1 L215.8,142.9 L216.1,142.7 L216.4,142.5 L216.7,142.3 L217.0,142.1 L217.4,141.9 L217.7,141.8 L218.1,141.6 L218.4,141.5 L218.8,141.4 L219.2,141.3 L219.6,141.3 L219.9,141.2 L220.3,141.2 L220.7,141.1 L221.1,141.1 L221.5,141.2 L221.9,141.2 L222.3,141.2 L222.7,141.3 L223.1,141.4 L223.5,141.5 L223.9,141.6 L224.3,141.8 L224.6,141.9 L225.0,142.1 L225.4,142.3 L225.8,142.5 L226.1,142.7 L226.5,143.0 L226.8,143.2 L227.1,143.5 L227.4,143.8 L227.7,144.1 L228.0,144.4 L228.3,144.7 L228.6,145.1 L228.8,145.4 L229.0,145.8 L229.3,146.2 L229.5,146.6 L229.6,147.0 L229.8,147.4 L230.0,147.8 L230.1,148.3 L230.2,148.7 L230.3,149.2 L230.4,149.6 L230.4,150.1 L230.4,150.5 L230.4,151.0 L230.4,151.5 L230.4,151.9 L230.4,152.4 L230.3,152.8 L230.2,153.3 L230.1,153.8 L229.9,154.2 L229.8,154.7 L229.6,155.1 L229.4,155.6 L229.2,156.0 L229.0,156.4 L228.7,156.8 L228.4,157.3 L228.1,157.6 L227.8,158.0 L227.5,158.4 L227.1,158.8 L226.8,159.1 L226.4,159.4 L226.0,159.7 L225.6,160.0 L225.2,160.3 L224.7,160.6 L224.3,160.8 L223.8,161.0 L223.3,161.2 L222.9,161.4 L222.4,161.6 L221.9,161.7 L221.3,161.8 L220.8,161.9 L220.3,162.0 L219.8,162.0 L219.2,162.0 L218.7,162.0 L218.2,162.0 L217.6,162.0 L217.1,161.9 L216.6,161.8 L216.0,161.7 L215.5,161.5 L215.0,161.4 L214.5,161.2 L214.0,161.0 L213.5,160.7 L213.0,160.5 L212.5,160.2 L212.0,159.9 L211.6,159.6 L211.1,159.2 L210.7,158.8 L210.3,158.5 L209.9,158.0 L209.5,157.6 L209.2,157.2 L208.8,156.7 L208.5,156.2 L208.2,155.7 L207.9,155.2 L207.6,154.7 L207.4,154.2 L207.2,153.6 L207.0,153.1 L206.8,152.5 L206.7,151.9 L206.6,151.4 L206.5,150.8 L206.4,150.2 L206.4,149.6 L206.4,149.0 L206.4,148.4 L206.4,147.8 L206.5,147.2 L206.6,146.6 L206.7,146.0 L206.8,145.4 L207.0,144.8 L207.2,144.2 L207.5,143.6 L207.7,143.0 L208.0,142.5 L208.3,141.9 L208.6,141.4 L209.0,140.9 L209.4,140.4 L209.8,139.9 L210.2,139.4 L210.6,139.0 L211.1,138.5 L211.6,138.1 L212.1,137.7 L212.6,137.3 L213.2,137.0 L213.7,136.7 L214.3,136.3 L214.9,136.1 L215.5,135.8 L216.1,135.6 L216.7,135.4 L217.4,135.2 L218.0,135.1 L218.7,134.9 L219.3,134.9 L220.0,134.8 L220.7,134.8 L221.3,134.8 L222.0,134.8 L222.7,134.9 L223.4,134.9 L224.0,135.1 L224.7,135.2 L225.4,135.4 L226.0,135.6 L226.7,135.8 L227.3,136.1 L227.9,136.4 L228.5,136.7 L229.1,137.1 L229.7,137.5 L230.3,137.9 L230.9,138.3 L231.4,138.8 L231.9,139.2 L232.4,139.7 L232.9,140.3 L233.3,140.8 L233.8,141.4 L234.2,142.0 L234.5,142.6 L234.9,143.2 L235.2,143.9 L235.5,144.5 L235.8,145.2 L236.0,145.9 L236.2,146.6 L236.4,147.3 L236.6,148.0 L236.7,148.7 L236.8,149.5 L236.8,150.2 L236.8,151.0 L236.8,151.7 L236.8,152.4 L236.7,153.2 L236.6,153.9 L236.4,154.7 L236.3,155.4 L236.0,156.1 L235.8,156.8 L235.5,157.5 L235.2,158.2 L234.9,158.9 L234.5,159.6"/><circle class="dot" cx="220" cy="150" r="3.5"/><text class="t" x="160" y="104">k<tspan class="sub" dy="5">α</tspan></text><path class="thin" d="M18,112 L82,112"/><path class="arrow" d="M88,112 l-10,-5 l0,10 Z"/><path class="thin" d="M18,150 L82,150"/><path class="arrow" d="M88,150 l-10,-5 l0,10 Z"/><path class="thin" d="M18,188 L82,188"/><path class="arrow" d="M88,188 l-10,-5 l0,10 Z"/><text class="t" x="40" y="96">U</text><path class="thin" d="M430,108 L430,176"/><path class="arrow" d="M430,102 l-5,10 l10,0 Z M430,182 l-5,-10 l10,0 Z"/><text class="t" x="442" y="148">h</text><path class="thin" d="M378,98 A160,160 0 0 1 392,140"/><path class="arrow" d="M376,93 l-1,11 l9,-4 Z"/><text class="t" x="394" y="104">α</text></svg></div>
           <div class="course-body">
-            <h3>Structural Dynamics</h3>
+            <h2>Structural Dynamics</h2>
             <p class="prof">Prof. Pierangelo Masarati</p>
             <p><b>Le cours.</b> La dynamique des structures et l’aéroélasticité : section type d’aile, efficacité des gouvernes, aile en flèche, modes propres, amortissement, vibrations aléatoires, aérodynamique instationnaire (Theodorsen, Wagner) et flottement.</p>
             <p><b>Ce qu’on a fait.</b> 17 séances d’exercices de février à mai, sur des systèmes amortis et des structures de type aile d’avion.</p>
@@ -912,7 +609,7 @@ dialog p{font-size:15px;color:#F5F5F7;margin:12px 0 0;text-align:center}
         <article class="course">
           <div class="course-vis"><div class="gal" data-gal><figure class="w6"><button type="button"><img src="assets/img/milan-md-mohr.jpg" alt="Cercle de Mohr au point critique du mât, tiré de notre rapport" loading="lazy"></button><figcaption>Cercle de Mohr au point critique du mât</figcaption></figure></div></div>
           <div class="course-body">
-            <h3>Machine Design</h3>
+            <h2>Machine Design</h2>
             <p class="prof">Prof. Andrea Manes</p>
             <p><b>Le cours.</b> Le dimensionnement des organes de machines : résistance statique, fatigue, effets d’entaille, instabilité, avec 12 séances d’exercices.</p>
             <p><b>Le projet.</b> Le mât rotor d’un hélicoptère, en groupe de trois : calcul statique, fatigue, flambement, modèle Abaqus et comparaison avec des essais. <a class="more" href="#mat-rotor">Voir le projet</a></p>
@@ -925,7 +622,7 @@ dialog p{font-size:15px;color:#F5F5F7;margin:12px 0 0;text-align:center}
         <article class="course">
           <div class="course-vis"><div class="gal" data-gal><figure class=""><button type="button"><img src="assets/img/milan-wind-valeurs-propres.jpg" alt="Évolution des valeurs propres de la section du tablier avec la vitesse du vent" loading="lazy"></button><figcaption>Valeurs propres en fonction du vent</figcaption></figure><figure class=""><button type="button"><img src="assets/img/milan-wind-rms.jpg" alt="Réponse RMS du tablier en fonction de la vitesse du vent, pic vers 67 m/s" loading="lazy"></button><figcaption>Réponse au vent turbulent</figcaption></figure></div></div>
           <div class="course-body">
-            <h3>Wind Engineering</h3>
+            <h2>Wind Engineering</h2>
             <p class="prof">Prof. Daniele Rocchi</p>
             <p><b>Le cours.</b> L’action du vent sur les structures : vent moyen et turbulence, instabilités aéroélastiques comme le flottement, réponse au vent turbulent.</p>
             <p><b>Le projet.</b> L’aéroélasticité du pont de la baie d’Izmit (Turquie), en groupe de cinq : d’abord un modèle de section à trois degrés de liberté, puis le pont complet décrit par ses modes propres.</p>
@@ -940,45 +637,54 @@ dialog p{font-size:15px;color:#F5F5F7;margin:12px 0 0;text-align:center}
     </div>
   </section>
 
-  <section class="sec" id="parcours" aria-labelledby="parcours-t">
+  </div>
+
+  <div id="parcours" data-view data-title="Parcours et compétences" data-nav="parcours">
+  <header class="p-hero">
     <div class="wrap">
-      <h2 class="h2" id="parcours-t">Parcours</h2>
-      <p class="intro-p">Formation, expériences et engagements, du plus récent au plus ancien.</p>
+      <nav class="crumbs" aria-label="Fil d’Ariane"><a href="#accueil">Accueil</a><span aria-current="page">Parcours</span></nav>
+      <h1 id="parcours-t" tabindex="-1">Parcours</h1>
+      <p class="p-lede">Formation, expériences et engagements, du plus récent au plus ancien.</p>
+      <p class="p-jump"><a href="#competences">Compétences</a><a href="#a-cote">En dehors des cours</a></p>
+    </div>
+  </header>
+  <section class="sec" aria-labelledby="parcours-t">
+    <div class="wrap">
       <div class="lanes" aria-hidden="true"><span>Formation</span><span>Expériences</span></div>
       <ol class="tl">
         <li class="x now"><div>
           <span class="when">Fév. – juil. 2027</span>
-          <h3>Safran Electronics &amp; Defense <span class="tag">Expérience</span></h3>
+          <h2>Safran Electronics &amp; Defense <span class="tag">Expérience</span></h2>
           <p class="where">Stage de fin d’études, service Qualité, Fougères</p>
           <p>Standardiser les programmes de validation industrielle : harmoniser les processus existants et adapter le document PPAP, avec de nombreux interlocuteurs.</p>
         </div></li>
         <li class="x"><div>
           <span class="when">Juil. – août 2026</span>
-          <h3>Stryker <span class="tag">Expérience</span></h3>
+          <h2>Stryker <span class="tag">Expérience</span></h2>
           <p class="where">Contrôle qualité en cours de production, intérim</p>
           <p>Contrôle d’implants d’épaule selon un plan de contrôle : machine à mesurer tridimensionnelle, rugosimètre, pied à coulisse. Ce que j’en retiens : une mesure ne vaut que si la méthode est la même d’un contrôleur à l’autre.</p>
         </div></li>
         <li class="f"><div>
           <span class="when">Fév. – juil. 2026</span>
-          <h3>Politecnico di Milano <span class="tag">Formation</span></h3>
+          <h2>Politecnico di Milano <span class="tag">Formation</span></h2>
           <p class="where">Semestre Erasmus, ingénierie aérospatiale</p>
           <p>Analyse structurelle et dynamique des structures aérospatiales, Machine Design, Wind Engineering. Cours en anglais. <a class="more" href="#milan">Voir les cours</a></p>
         </div></li>
         <li class="x"><div>
           <span class="when">2026</span>
-          <h3>PoliSpace <span class="tag">Engagement</span></h3>
+          <h2>PoliSpace <span class="tag">Engagement</span></h2>
           <p class="where">Ingénieur structures, ballon stratosphérique GEM-GCR</p>
           <p>Conception de l’habitat des cultures cellulaires, dossier de candidature BEXUS pour l’ESA. <a href="#gem-gcr">Voir le projet</a></p>
         </div></li>
         <li class="x"><div>
           <span class="when">Juin – sept. 2025</span>
-          <h3>Expleo, pour Sigmacabin <span class="tag">Expérience</span></h3>
+          <h2>Expleo, pour Sigmacabin <span class="tag">Expérience</span></h2>
           <p class="where">Stage ingénieur bureau d’études, Gières</p>
           <p>Reconception d’une quille de cabine, assemblage virtuel complet d’une cabine sous NX, gestion des révisions dans Teamcenter. <a href="#expleo">Voir le projet</a></p>
         </div></li>
         <li class="f"><div>
           <span class="when">2024 – 2027</span>
-          <h3>ECAM LaSalle, Lyon <span class="tag">Formation</span></h3>
+          <h2>ECAM LaSalle, Lyon <span class="tag">Formation</span></h2>
           <p class="where">Ingénieur généraliste, formation Arts et Métiers, spécialité Usine du Futur</p>
           <p>Entrée en 3<sup>e</sup> année en 2024. Certification supply chain CSCA (ASCM) en préparation.</p>
           <details>
@@ -992,37 +698,37 @@ dialog p{font-size:15px;color:#F5F5F7;margin:12px 0 0;text-align:center}
         </div></li>
         <li class="x"><div>
           <span class="when">Depuis 2024</span>
-          <h3>Formula Student ECAM <span class="tag">Engagement</span></h3>
+          <h2>Formula Student ECAM <span class="tag">Engagement</span></h2>
           <p class="where">Ingénieur conception châssis</p>
           <p>Châssis tubulaire paramétré, calculs de masse et de centrage, recherche des partenaires de fabrication. <a href="#efst">Voir le projet</a></p>
         </div></li>
         <li class="f"><div>
           <span class="when">2023 – 2024</span>
-          <h3>Prépa ATS <span class="tag">Formation</span></h3>
+          <h2>Prépa ATS <span class="tag">Formation</span></h2>
           <p class="where">Lycée Édouard Branly, Lyon</p>
           <p>La passerelle des bacheliers techniques vers les écoles d’ingénieurs.</p>
         </div></li>
         <li class="x"><div>
           <span class="when">Depuis 2022</span>
-          <h3>KBE, ma micro-entreprise <span class="tag">Expérience</span></h3>
+          <h2>KBE, ma micro-entreprise <span class="tag">Expérience</span></h2>
           <p class="where">Fondateur, bureau d’études et conception mécanique</p>
           <p>Modélisation 3D, mise en plan et reconstitution de géométrie, menées en parallèle de mes études. Plus de 550 heures pour Fradem, mon client principal.</p>
         </div></li>
         <li class="x"><div>
           <span class="when">Mai – juil. 2022</span>
-          <h3>Fradem <span class="tag">Expérience</span></h3>
+          <h2>Fradem <span class="tag">Expérience</span></h2>
           <p class="where">Stage de BTS, Domène</p>
           <p>Mât de brise-roche, rack à tôle, hotte d’aspiration : de la 3D à l’atelier. <a href="#fradem">Voir le projet</a></p>
         </div></li>
         <li class="f"><div>
           <span class="when">2021 – 2023</span>
-          <h3>BTS Conception de Produits Industriels <span class="tag">Formation</span></h3>
+          <h2>BTS Conception de Produits Industriels <span class="tag">Formation</span></h2>
           <p class="where">Lycée Gaspard Monge, Chambéry</p>
           <p>Félicitations des enseignants.</p>
         </div></li>
         <li class="f"><div>
           <span class="when">2018 – 2021</span>
-          <h3>Bac pro Étude et Définition de Produits Industriels <span class="tag">Formation</span></h3>
+          <h2>Bac pro Étude et Définition de Produits Industriels <span class="tag">Formation</span></h2>
           <p class="where">Lycée Pablo Neruda</p>
           <p>Mention bien.</p>
         </div></li>
@@ -1085,19 +791,7 @@ dialog p{font-size:15px;color:#F5F5F7;margin:12px 0 0;text-align:center}
     </div>
   </section>
 
-  <section class="sec alt" id="cap" aria-labelledby="cap-t">
-    <div class="wrap aim">
-      <div>
-        <h2 class="h2" id="cap-t">Où je vais</h2>
-        <p class="statement">Partir d’un socle technique solide pour évoluer vers le pilotage d’organisations industrielles, de la conception du produit à la performance des opérations.</p>
-      </div>
-      <dl>
-        <div><dt>Secteurs</dt><dd>Aéronautique et défense, industrie, et fonctions industrielles du luxe.</dd></div>
-        <div><dt>Métiers</dt><dd>Conception mécanique, méthodes et industrialisation, qualité, amélioration continue, supply chain, gestion de projet.</dd></div>
-        <div><dt>À terme</dt><dd>Développer des compétences en management, stratégie et finance pour prendre part aux décisions qui font tourner une usine.</dd></div>
-      </dl>
-    </div>
-  </section>
+  </div>
 
   <section class="contact" id="contact" aria-labelledby="contact-t">
     <div class="wrap">
@@ -1125,102 +819,5 @@ dialog p{font-size:15px;color:#F5F5F7;margin:12px 0 0;text-align:center}
   <p id="lb-cap"></p>
 </dialog>
 
-<script>
-(function(){
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  /* --- vue éclatée --- */
-  var fig = document.getElementById('xfig'), svg = fig.querySelector('.xview'), tog = document.getElementById('xtoggle');
-  function setLabel(){ tog.textContent = svg.classList.contains('assembled') ? 'Éclater la vue' : 'Assembler'; }
-  if(!reduce && 'IntersectionObserver' in window){
-    svg.classList.add('still','assembled');
-    svg.getBoundingClientRect();
-    svg.classList.remove('still');
-    var xo = new IntersectionObserver(function(es){ es.forEach(function(e){
-      if(e.isIntersecting){ setTimeout(function(){ svg.classList.remove('assembled'); setLabel(); }, 250); xo.disconnect(); }
-    }); }, {threshold:.45});
-    xo.observe(svg);
-  }
-  setLabel();
-  tog.addEventListener('click', function(){ svg.classList.toggle('assembled'); setLabel(); });
-  var btns = fig.querySelectorAll('.parts button');
-  function activate(p){
-    if(p){ fig.setAttribute('data-active', p); } else { fig.removeAttribute('data-active'); }
-    btns.forEach(function(b){ b.setAttribute('aria-pressed', String(b.dataset.part === p)); });
-  }
-  btns.forEach(function(b){
-    b.addEventListener('mouseenter', function(){ activate(b.dataset.part); });
-    b.addEventListener('focus', function(){ activate(b.dataset.part); });
-    b.addEventListener('click', function(){ activate(b.dataset.part); if(svg.classList.contains('assembled')){ svg.classList.remove('assembled'); setLabel(); } });
-  });
-  fig.querySelector('.parts').addEventListener('mouseleave', function(){ activate(null); });
-  svg.querySelectorAll('.part').forEach(function(g){
-    g.addEventListener('mouseenter', function(){ activate(g.dataset.part); });
-    g.addEventListener('mouseleave', function(){ activate(null); });
-    g.addEventListener('click', function(){ activate(g.dataset.part); });
-  });
-
-  /* --- navigation active --- */
-  var links = document.querySelectorAll('.bar nav a');
-  if('IntersectionObserver' in window){
-    var io = new IntersectionObserver(function(es){
-      es.forEach(function(e){
-        if(e.isIntersecting){
-          links.forEach(function(a){ a.setAttribute('aria-current', String(a.getAttribute('href') === '#' + e.target.id)); });
-        }
-      });
-    }, {rootMargin:'-45% 0px -50% 0px'});
-    ['projets','parcours','competences','contact'].forEach(function(id){ var s=document.getElementById(id); if(s) io.observe(s); });
-  }
-
-  /* --- animation AuraFlow --- */
-  document.querySelectorAll('.film').forEach(function(f){
-    var v = f.querySelector('video'), b = f.querySelector('.pp');
-    function sync(){ var playing = !v.paused; b.textContent = playing ? 'Pause' : 'Lire l’animation'; b.setAttribute('aria-pressed', String(playing)); }
-    b.addEventListener('click', function(){ if(v.paused){ v.play(); } else { v.pause(); } });
-    v.addEventListener('play', sync); v.addEventListener('pause', sync);
-    if(!reduce && 'IntersectionObserver' in window){
-      var started = false;
-      new IntersectionObserver(function(es){ es.forEach(function(e){
-        if(e.isIntersecting && !started){ started = true; var p = v.play(); if(p && p.catch) p.catch(function(){}); }
-        else if(!e.isIntersecting && !v.paused){ v.pause(); started = false; }
-      }); }, {threshold:.4}).observe(v);
-    }
-  });
-
-  /* --- visionneuse --- */
-  var lb = document.getElementById('lb'), lbImg = document.getElementById('lb-img'), lbCap = document.getElementById('lb-cap');
-  var prev = document.getElementById('lb-prev'), next = document.getElementById('lb-next');
-  var set = [], idx = 0;
-  function show(i){
-    idx = (i + set.length) % set.length;
-    lbImg.src = set[idx].src; lbImg.alt = set[idx].alt; lbCap.textContent = set[idx].cap;
-    prev.hidden = next.hidden = set.length < 2;
-  }
-  function open(items, i){ set = items; show(i); if(lb.showModal){ lb.showModal(); } }
-  document.querySelectorAll('[data-gal]').forEach(function(g){
-    var bs = Array.prototype.slice.call(g.querySelectorAll('figure > button:not(.pp)'));
-    var items = bs.map(function(b){ var im = b.querySelector('img'), fc = b.parentElement.querySelector('figcaption'); b.setAttribute('aria-label', 'Agrandir : ' + (fc ? fc.textContent : im.alt)); return {src: im.currentSrc || im.src, alt: im.alt, cap: fc ? fc.textContent : ''}; });
-    bs.forEach(function(b, i){ b.addEventListener('click', function(){ open(items, i); }); });
-  });
-  document.querySelectorAll('.thumb').forEach(function(b){
-    b.setAttribute('aria-label', 'Agrandir : ' + b.dataset.cap);
-    b.addEventListener('click', function(){ open([{src: b.dataset.src, alt: b.querySelector('img').alt, cap: b.dataset.cap}], 0); });
-  });
-  document.getElementById('lb-close').addEventListener('click', function(){ lb.close(); });
-  prev.addEventListener('click', function(){ show(idx - 1); });
-  next.addEventListener('click', function(){ show(idx + 1); });
-  lb.addEventListener('click', function(e){ if(e.target === lb){ lb.close(); } });
-  lb.addEventListener('keydown', function(e){ if(e.key === 'ArrowLeft'){ show(idx - 1); } else if(e.key === 'ArrowRight'){ show(idx + 1); } });
-
-  /* --- copier l'adresse --- */
-  var copy = document.getElementById('copy'), email = document.getElementById('email');
-  copy.addEventListener('click', function(){
-    function select(){ var r = document.createRange(); r.selectNodeContents(email); var s = getSelection(); s.removeAllRanges(); s.addRange(r); copy.textContent = 'Adresse sélectionnée'; }
-    try { navigator.clipboard.writeText(email.textContent).then(function(){ copy.textContent = 'Adresse copiée'; }, select); } catch(e){ select(); }
-    setTimeout(function(){ copy.textContent = 'Copier l’adresse'; }, 2400);
-  });
-})();
-</script>
 </body>
 </html>
