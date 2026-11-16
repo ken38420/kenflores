@@ -7,16 +7,18 @@ window.kfOrbitAlive = true;
 const root = document.documentElement;
 const orbitEl = document.querySelector('[data-orbit]');
 const home = document.getElementById('accueil');
-const mq = window.matchMedia('(min-height:560px) and (prefers-reduced-motion:no-preference)');
-const fail = (why) => { if (window.console) console.warn('orbite : repli', why); if (window.kfOrbitFail) window.kfOrbitFail(); };
+const mq = window.matchMedia('screen and (min-height:560px) and (prefers-reduced-motion:no-preference)');
+let teardown = null;
+/* remember : l'échec est mémorisé pour la session (pas pour un simple réseau lent) */
+const fail = (why, remember = true) => { if (window.console) console.warn('orbite : repli', why); if (teardown) teardown(); if (window.kfOrbitFail) window.kfOrbitFail(remember); };
 
 if (root.classList.contains('orbit') && orbitEl && home) {
   const start = () => {
     let done = false;
-    const timer = setTimeout(() => { if (!done) fail('import trop long'); }, 6000);
+    const timer = setTimeout(() => { if (!done) { done = true; fail('import trop long', false); } }, 10000);
     import('./vendor/three.module.min.js')
-      .then((THREE) => { done = true; clearTimeout(timer); if (root.classList.contains('orbit')) build(THREE); })
-      .catch((e) => { done = true; clearTimeout(timer); fail(e); });
+      .then((THREE) => { if (done) return; done = true; clearTimeout(timer); if (root.classList.contains('orbit')) build(THREE); })
+      .catch((e) => { if (done) return; done = true; clearTimeout(timer); fail(e); });
   };
   /* Three.js n'est chargé que si l'Accueil est affiché ET que l'écran permet l'orbite (hauteur, pas de « réduire les animations ») */
   let started = false;
@@ -43,6 +45,7 @@ function build(THREE) {
   } catch (e) { fail(e); return; }
   renderer.setClearColor(0x000000, 0);
   canvas.addEventListener('webglcontextlost', (e) => { e.preventDefault(); fail('contexte WebGL perdu'); });
+  const projets = document.getElementById('projets');
 
   const scene = new THREE.Scene();
   scene.fog = new THREE.Fog(NIGHT, 7, 15);
@@ -214,7 +217,9 @@ function build(THREE) {
     const holder = new THREE.Group(); holder.add(inner); holder.scale.setScalar(s); holder.userData.s = s;
     const t = document.querySelector('.tile a[href="#' + id + '"] .tile-t');
     const a = document.createElement('a');
+    /* doublon souris des tuiles juste en dessous : hors du clavier et des lecteurs d'écran, qui ont les tuiles */
     a.href = '#' + id; a.className = 'orbit-label'; a.textContent = t ? t.textContent : id;
+    a.tabIndex = -1; a.setAttribute('aria-hidden', 'true');
     labels.appendChild(a); holder.userData.label = a;
     scene.add(holder);
     return holder;
@@ -231,7 +236,8 @@ function build(THREE) {
   /* --- progression et rendu à la demande --- */
   const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
   const smooth = (a, b, v) => { const t = clamp((v - a) / (b - a)); return t * t * (3 - 2 * t); };
-  let W = 0, H = 0, R = 3.4, HW = 4, HH = 2.9, queued = false, active = true;
+  let W = 0, H = 0, R = 3.4, HW = 4, HH = 2.9, queued = false, active = true, dead = false;
+  let lastP = -1, dirty = true, lastMark = null;
 
   const resize = () => {
     const w = stage.clientWidth, h = stage.clientHeight;
@@ -255,8 +261,15 @@ function build(THREE) {
 
   const draw = () => {
     queued = false;
-    if (!active || !home.classList.contains('on') || !resize()) return;
+    if (dead) return;
+    if (home.classList.contains('on')) lastMark = projets.getBoundingClientRect().top;
+    if (!active || !home.classList.contains('on')) { dirty = true; return; }
+    const w0 = W, h0 = H;
+    if (!resize()) return;
     const p = progress();
+    /* rendu à la demande : rien ne change tant que la progression, la taille et la vue sont les mêmes */
+    if (!dirty && p === lastP && W === w0 && H === h0) return;
+    dirty = false; lastP = p;
     /* 0 → 0,62 : l'anneau tourne autour du nom ; 0,62 → 0,78 : « boum », l'anneau éclate ;
        0,78 → 1 : les maquettes se rangent en ligne, comme une vitrine, juste avant la section Projets */
     const burst = smooth(0.62, 0.74, p) * (1 - smooth(0.74, 0.9, p));
@@ -296,12 +309,40 @@ function build(THREE) {
   };
   const ask = () => { if (!queued) { queued = true; requestAnimationFrame(draw); } };
 
+  /* remet le héros dans son état de repos : liens actifs, texte visible, étiquettes masquées */
+  const rest = () => {
+    live.forEach((el) => { el.inert = false; });
+    labels.classList.remove('on');
+    stage.style.removeProperty('--txt-o');
+    stage.style.removeProperty('--txt-s');
+  };
+  const onHome = new MutationObserver(() => { dirty = true; ask(); });
+  /* rotation de l'écran, zoom, fenêtre réduite : on suspend sans considérer que c'est un échec, et on reprend ensuite.
+     La mise en page a déjà changé quand l'événement arrive : on recale la section Projets d'après sa dernière position connue. */
+  const onMq = () => {
+    active = mq.matches;
+    if (!active) rest();
+    if (home.classList.contains('on') && lastMark !== null && lastMark <= innerHeight) {
+      const dy = projets.getBoundingClientRect().top - lastMark;
+      if (Math.abs(dy) > 2) scrollBy(0, dy);
+    }
+    W = H = 0; dirty = true; ask();
+  };
   window.addEventListener('scroll', ask, { passive: true });
   window.addEventListener('resize', ask);
-  new MutationObserver(ask).observe(home, { attributes: true, attributeFilter: ['class'] });
-  /* rotation de l'écran ou zoom : on suspend sans considérer que c'est un échec, et on reprend quand la condition revient */
-  mq.addEventListener('change', () => { active = mq.matches; if (active) { W = H = 0; ask(); } });
+  onHome.observe(home, { attributes: true, attributeFilter: ['class'] });
+  mq.addEventListener('change', onMq);
   active = mq.matches;
+  teardown = () => {
+    if (dead) return;
+    dead = true; rest();
+    window.removeEventListener('scroll', ask);
+    window.removeEventListener('resize', ask);
+    onHome.disconnect();
+    mq.removeEventListener('change', onMq);
+    labels.remove();
+    renderer.dispose();
+  };
 
   draw();
   root.classList.add('orbit-ready');

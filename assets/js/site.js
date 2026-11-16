@@ -15,8 +15,10 @@
     var baseTitle = document.title, current = null;
     if('scrollRestoration' in history){ history.scrollRestoration = 'manual'; }
     var jump = function(el, y){ if(el){ el.scrollIntoView(); } else { window.scrollTo(0, y || 0); } };
+    /* mise en page du héros (orbite haute ou classique) : une position mémorisée dans l'autre mise en page ne vaut plus */
+    var layout = function(){ return window.kfOrbitOn ? window.kfOrbitOn() : false; };
     var saveState = function(){
-      try { history.replaceState({y: window.scrollY, v: current ? current.id : null}, ''); } catch(err){}
+      try { history.replaceState({y: window.scrollY, v: current ? current.id : null, o: layout()}, ''); } catch(err){}
     };
     var focusOn = function(el){
       if(!el){ return; }
@@ -42,7 +44,7 @@
       try { id = decodeURIComponent(location.hash.slice(1)); } catch(err){}
       var target = id ? document.getElementById(id) : null;
       var view = target ? target.closest('[data-view]') : null;
-      var st = history.state || {}, y = typeof st.y === 'number' ? st.y : null;
+      var st = history.state || {}, y = typeof st.y === 'number' && (st.o === undefined || st.o === layout()) ? st.y : null;
       var saved = st.v ? document.getElementById(st.v) : null;
       if(target && !view){
         /* #contact, #top : on reste sur la vue d'où l'on vient */

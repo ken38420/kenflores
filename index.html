@@ -6,21 +6,28 @@
 <script>document.documentElement.classList.add('js');document.addEventListener('DOMContentLoaded',function(){if(!document.querySelector('[data-view].on'))document.documentElement.classList.remove('js')})</script>
 <script>
 /* Héros « Orbite » : décidé ici, avant la mise en page, pour que route() voie la bonne hauteur.
-   orbit.js doit se signaler (window.kfOrbitAlive) ; sinon, ou en cas d'échec, kfOrbitFail() remet le héros classique. */
-(function(){var d=document.documentElement;try{
-var force=location.search.indexOf('orbit=force')>-1;
-if(!force&&sessionStorage.getItem('kf-orbit-fail'))return;
+   orbit.js doit se signaler (window.kfOrbitAlive) ; sinon, ou en cas d'échec, kfOrbitFail() remet le héros classique.
+   kfOrbitShift(fn) applique un changement de mise en page en gardant la section Projets à la même place à l'écran. */
+(function(){var d=document.documentElement,Q='screen and (min-height:560px) and (prefers-reduced-motion:no-preference)';
+window.kfOrbitOn=function(){return d.classList.contains('orbit')&&matchMedia(Q).matches};
+window.kfOrbitShift=function(fn){
+  var mark=document.getElementById('projets'),seen=mark&&mark.offsetParent!==null,y0=seen?mark.getBoundingClientRect().top:0;
+  fn();
+  if(seen){if(y0>innerHeight){scrollTo(0,0)}else{var dy=mark.getBoundingClientRect().top-y0;if(Math.abs(dy)>2)scrollBy(0,dy)}}
+};
+window.kfOrbitFail=function(remember){
+  if(!d.classList.contains('orbit'))return;
+  kfOrbitShift(function(){d.classList.remove('orbit','orbit-ready')});
+  if(remember){try{sessionStorage.setItem('kf-orbit-fail','1')}catch(e){}}
+};
+try{
+var force=location.search.indexOf('orbit=force')>-1,failed=false;
+try{failed=!!sessionStorage.getItem('kf-orbit-fail')}catch(e){}
+if(!force&&(failed||matchMedia('(prefers-reduced-motion: reduce)').matches))return;
 var c=document.createElement('canvas'),g=c.getContext('webgl2',force?{}:{failIfMajorPerformanceCaveat:true});
 if(!g)return;var lose=g.getExtension('WEBGL_lose_context');if(lose)lose.loseContext();
 d.classList.add('orbit');
-window.kfOrbitFail=function(){
-  if(!d.classList.contains('orbit'))return;
-  var mark=document.getElementById('projets'),seen=mark&&mark.offsetParent!==null,y0=seen?mark.getBoundingClientRect().top:0;
-  d.classList.remove('orbit','orbit-ready');
-  try{sessionStorage.setItem('kf-orbit-fail','1')}catch(e){}
-  if(seen){if(y0>innerHeight){scrollTo(0,0)}else{scrollBy(0,mark.getBoundingClientRect().top-y0)}}
-};
-setTimeout(function(){if(!window.kfOrbitAlive)window.kfOrbitFail()},6000);
+setTimeout(function(){if(!window.kfOrbitAlive)kfOrbitFail(true)},6000);
 }catch(e){d.classList.remove('orbit')}})();
 </script>
 <title>Ken Flores, étudiant-ingénieur Arts et Métiers</title>
@@ -46,7 +53,7 @@ setTimeout(function(){if(!window.kfOrbitAlive)window.kfOrbitFail()},6000);
 </script>
 <link rel="stylesheet" href="assets/css/site.css">
 <script src="assets/js/site.js" defer onerror="document.documentElement.classList.remove('js')"></script>
-<script type="module" src="assets/js/orbit.js"></script>
+<script type="module" src="assets/js/orbit.js" onerror="window.kfOrbitFail&&kfOrbitFail(true)"></script>
 </head>
 <body>
 <!--
