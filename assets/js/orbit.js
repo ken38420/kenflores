@@ -138,13 +138,84 @@ function build(THREE) {
     return g;
   };
 
-  const makers = [[gem, 1.5], [chassis, 2.2], [mast, 1.7]];
-  const models = makers.map(([make, k]) => {
+  // Cabine de télécabine (Expleo pour Sigmacabin) : cabine arrondie, suspente au câble, quille tubulaire en V sous le plancher
+  const cabin = () => {
+    const g = new THREE.Group();
+    g.add(box(1.7, 1.5, 1.3, 0, 0.75, 0));
+    const win = [];
+    for (const z of [0.651, -0.651]) win.push(V(-0.72, 0.85, z), V(0.72, 0.85, z), V(0.72, 0.85, z), V(0.72, 1.32, z), V(0.72, 1.32, z), V(-0.72, 1.32, z), V(-0.72, 1.32, z), V(-0.72, 0.85, z), V(0, 0.08, z), V(0, 1.32, z));
+    g.add(lines(win, thinMat));
+    g.add(box(0.5, 0.12, 0.5, 0, 1.56, 0));
+    g.add(lines([V(0, 1.62, 0), V(0, 2.5, 0), V(-1.2, 2.62, 0), V(1.2, 2.5, 0)]));
+    g.add(box(0.5, 0.22, 0.3, 0, 2.55, 0));
+    const keel = [];
+    for (const z of [0.42, -0.42]) keel.push(V(-0.7, 0, z), V(-0.15, -0.42, z), V(-0.15, -0.42, z), V(0.15, -0.42, z), V(0.15, -0.42, z), V(0.7, 0, z));
+    keel.push(V(-0.15, -0.42, 0.42), V(-0.15, -0.42, -0.42), V(0.15, -0.42, 0.42), V(0.15, -0.42, -0.42));
+    g.add(lines(keel, skyMat));
+    for (const x of [-0.7, 0.7]) { const sb = ring(0.07, 0, accMat, 16); sb.rotation.x = Math.PI / 2; sb.position.set(x, 0, 0); g.add(sb); }
+    return g;
+  };
+  // AuraFlow : robot cartésien fixé au plafond de la station, au-dessus du véhicule
+  const gantry = () => {
+    const g = new THREE.Group();
+    for (const z of [0.9, -0.9]) g.add(box(3.2, 0.1, 0.12, 0, 2.4, z));
+    g.add(box(0.14, 0.12, 1.9, 0.4, 2.28, 0));
+    g.add(box(0.3, 0.22, 0.3, 0.4, 2.12, 0.25));
+    g.add(box(0.1, 1.1, 0.1, 0.4, 1.46, 0.25));
+    g.add(lines([V(0.4, 0.91, 0.25), V(0.62, 0.78, 0.25)], accMat));
+    const car = box(2.4, 0.5, 1.1, -0.1, 0.42, 0); car.children[1].material = thinMat; g.add(car);
+    g.add(box(1.3, 0.38, 1.0, -0.25, 0.86, 0));
+    for (const x of [-0.9, 0.7]) for (const z of [0.56, -0.56]) { const w = ring(0.2, 0, thinMat, 24); w.rotation.x = Math.PI / 2; w.position.set(x, 0.18, z); g.add(w); }
+    return g;
+  };
+  // Mât de brise-roche hydraulique (Fradem) : platine à 6 goujons, mât, passerelle, échelle à crinoline, bras
+  const breaker = () => {
+    const g = new THREE.Group();
+    g.add(cyl(0.55, 0.08, 0, { gen: 6 }));
+    const st = [];
+    for (let i = 0; i < 6; i++) { const a = i / 6 * Math.PI * 2; st.push(V(Math.cos(a) * 0.45, 0.08, Math.sin(a) * 0.45), V(Math.cos(a) * 0.45, 0.2, Math.sin(a) * 0.45)); }
+    g.add(lines(st, accMat));
+    g.add(cyl(0.2, 3.0, 0.08, { gen: 8 }));
+    g.add(box(1.1, 0.06, 1.1, 0, 3.1, 0));
+    const rail = [];
+    for (const [x, z] of [[-0.55, -0.55], [0.55, -0.55], [0.55, 0.55], [-0.55, 0.55]]) rail.push(V(x, 3.13, z), V(x, 3.55, z));
+    rail.push(V(-0.55, 3.55, -0.55), V(0.55, 3.55, -0.55), V(0.55, 3.55, -0.55), V(0.55, 3.55, 0.55), V(0.55, 3.55, 0.55), V(-0.55, 3.55, 0.55));
+    g.add(lines(rail, thinMat));
+    const lad = [V(-0.12, 0.3, 0.32), V(-0.12, 3.1, 0.32), V(0.12, 0.3, 0.32), V(0.12, 3.1, 0.32)];
+    for (let y = 0.5; y < 3.1; y += 0.25) lad.push(V(-0.12, y, 0.32), V(0.12, y, 0.32));
+    g.add(lines(lad, thinMat));
+    for (let y = 1.2; y < 3.1; y += 0.45) { const h = ring(0.3, y, thinMat, 24); h.position.z = 0.42; g.add(h); }
+    g.add(lines([V(0, 2.9, 0), V(1.7, 2.3, 0), V(1.7, 2.3, 0), V(2.3, 1.2, 0)], skyMat));
+    g.add(box(0.16, 0.5, 0.16, 2.3, 0.95, 0));
+    return g;
+  };
+  // KBE : une pièce de construction métallique mise en plan, platine percée et goussets
+  const bracket = () => {
+    const g = new THREE.Group();
+    g.add(box(2.2, 0.12, 1.4, 0, 0.06, 0));
+    g.add(box(0.12, 1.4, 1.4, -1.04, 0.82, 0));
+    const gus = [];
+    for (const z of [0.45, -0.45]) gus.push(V(-0.98, 0.12, z), V(0.2, 0.12, z), V(0.2, 0.12, z), V(-0.98, 1.3, z), V(-0.98, 1.3, z), V(-0.98, 0.12, z));
+    g.add(lines(gus, skyMat));
+    for (const [x, z] of [[0.6, 0.45], [0.6, -0.45], [0.95, 0.45], [0.95, -0.45]]) { const h = ring(0.09, 0.121, lineMat, 20); h.position.set(x, 0, z); g.add(h); }
+    for (const [y, z] of [[0.95, 0.4], [0.95, -0.4]]) { const h = ring(0.1, 0, accMat, 20); h.rotation.z = Math.PI / 2; h.position.set(-1.10, y, z); g.add(h); }
+    return g;
+  };
+
+  const makers = [['gem-gcr', gem, 1.5], ['efst', chassis, 2.2], ['mat-rotor', mast, 1.7], ['expleo', cabin, 1.6], ['auraflow', gantry, 1.9], ['fradem', breaker, 1.8], ['kbe', bracket, 1.5]];
+  const labels = document.createElement('div');
+  labels.className = 'orbit-labels';
+  stage.appendChild(labels);
+  const models = makers.map(([id, make, k]) => {
     const inner = make();
     const bb = new THREE.Box3().setFromObject(inner), size = bb.getSize(V(0, 0, 0)), c = bb.getCenter(V(0, 0, 0));
     inner.position.sub(c);
     const s = k / Math.max(size.x, size.y, size.z);
     const holder = new THREE.Group(); holder.add(inner); holder.scale.setScalar(s); holder.userData.s = s;
+    const t = document.querySelector('.tile a[href="#' + id + '"] .tile-t');
+    const a = document.createElement('a');
+    a.href = '#' + id; a.className = 'orbit-label'; a.textContent = t ? t.textContent : id;
+    labels.appendChild(a); holder.userData.label = a;
     scene.add(holder);
     return holder;
   });
@@ -191,19 +262,30 @@ function build(THREE) {
     const burst = smooth(0.62, 0.74, p) * (1 - smooth(0.74, 0.9, p));
     const line = smooth(0.72, 0.95, p);
     const turn = Math.min(p, 0.74) * Math.PI * 2.1;
-    const n = models.length, tall = W < H, gap = tall ? clamp(HH * 0.55, 1.3, 2.2) : clamp(R * 0.62, 1.9, 2.9);
-    const ry = tall ? HH * 0.5 : R * 0.17, fit = tall ? 0.72 : 1;
+    camera.position.set(0, 1.3 - line * 1.3, 9.5);
+    camera.lookAt(0, 0, 0);
+    camera.updateMatrixWorld();
+    const n = models.length, tall = W < H;
+    const cols = tall ? 2 : 4, rows = Math.ceil(n / cols);
+    const gx = Math.min(HW * 1.7 / cols, 3.2), gy = Math.min(HH * 1.5 / rows, 2.3);
+    const ry = tall ? HH * 0.62 : R * 0.17, fit = tall ? 0.42 : 0.85, small = tall ? 0.55 : 0.8;
+    lineMat.opacity = tall ? 0.5 + 0.42 * line : 0.92; thinMat.opacity = lineMat.opacity * 0.42;
+    const showLabels = line > 0.92;
+    labels.classList.toggle('on', showLabels);
     models.forEach((m, i) => {
       const a = turn + i / n * Math.PI * 2 + 0.35;
-      const r = R * (1 + burst * 0.9);
+      const r = (tall ? HW * 0.8 : R) * (1 + burst * 0.9);
       const ring = [Math.sin(a) * r, -Math.cos(a) * ry * (1 + burst * 0.9) + 0.15, Math.cos(a) * r * 0.62];
-      const row = tall ? [0, ((n - 1) / 2 - i) * gap, 0] : [(i - (n - 1) / 2) * gap, -0.1, 0];
-      m.position.set(ring[0] + (row[0] - ring[0]) * line, ring[1] + (row[1] - ring[1]) * line, ring[2] + (row[2] - ring[2]) * line);
+      const row = Math.floor(i / cols), inRow = Math.min(cols, n - row * cols), col = i % cols;
+      const cell = [(col - (inRow - 1) / 2) * gx, ((rows - 1) / 2 - row) * gy + 0.25, 0];
+      m.position.set(ring[0] + (cell[0] - ring[0]) * line, ring[1] + (cell[1] - ring[1]) * line, ring[2] + (cell[2] - ring[2]) * line);
       m.rotation.set(0.2 + p * 0.5, -a * 1.3 + p * 2.6, 0.05 * (1 - line));
-      m.scale.setScalar(m.userData.s * fit * (1 + burst * 0.35 - line * 0.1));
+      m.scale.setScalar(m.userData.s * (small + (fit - small) * line) * (1 + burst * 0.35));
+      if (showLabels) {
+        const v = m.position.clone(); v.y -= gy * 0.42; v.project(camera);
+        m.userData.label.style.transform = 'translate(' + ((v.x + 1) / 2 * W).toFixed(1) + 'px,' + ((1 - v.y) / 2 * H).toFixed(1) + 'px) translate(-50%,0)';
+      }
     });
-    camera.position.set(0, 1.3 - line * 0.6, 9.5);
-    camera.lookAt(0, 0, 0);
     starMat.opacity = smooth(0.6, 0.8, p) * 0.7;
     const t = 1 - smooth(0.6, 0.72, p);
     stage.style.setProperty('--txt-o', t.toFixed(3));
