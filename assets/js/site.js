@@ -87,6 +87,17 @@
 (function(){
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  /* --- entrée du héros : jouée une seule fois. kf-done est l'animation la plus longue, posée sur la figure elle-même ;
+     à sa fin (ou si on quitte l'accueil avant), .kf-played retire toutes les animations d'entrée (elles ne se rejouent pas au retour sur l'accueil). --- */
+  var heroFig = document.querySelector('.hero-fig');
+  if(heroFig){
+    var played = function(e){
+      if(e.target === heroFig && e.animationName === 'kf-done'){ document.documentElement.classList.add('kf-played'); }
+    };
+    heroFig.addEventListener('animationend', played);
+    heroFig.addEventListener('animationcancel', played);
+  }
+
   /* --- vue éclatée --- */
   var fig = document.getElementById('xfig');
   if(fig){
