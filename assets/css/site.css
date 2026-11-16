@@ -19,6 +19,7 @@
   --x-top:#DDE6F0;--scrim:rgba(4,11,23,.86);
   --sans:"Archivo",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",sans-serif;
   --stretch:112%;
+  --bar-h:49px;
   --ease:cubic-bezier(.25,.1,.25,1);
   --ease-out:cubic-bezier(.23,1,.32,1);
   --ease-drawer:cubic-bezier(.16,1,.3,1);
@@ -88,7 +89,7 @@ html.js:not(.kf-played) .hero-txt > :nth-child(3){animation-delay:.06s}
 html.js:not(.kf-played) .hero-txt > :nth-child(4){animation-delay:.12s}
 html.js:not(.kf-played) .hero-txt > :nth-child(5){animation-delay:.18s}
 html.js:not(.kf-played) .hero-txt > .status{animation-delay:.24s}
-html.js:not(.kf-played) .hero-fig{animation:kf-done 2.4s linear}
+html.js:not(.kf-played) .hero-txt{animation:kf-done 2.4s linear}
 html.js:not(.kf-played) .hero-fig .part{animation:kf-explode 1.3s var(--ease-drawer) .35s backwards}
 html.js:not(.kf-played) .hero-fig .part[data-part="xps"]{animation-delay:.45s}
 html.js:not(.kf-played) .hero-fig .part[data-part="alu"]{animation-delay:.55s}
@@ -495,3 +496,26 @@ dialog p{font-size:15px;color:var(--on-night);margin:12px 0 0;text-align:center}
 .contact .btn:not(.solid):hover{border-color:var(--sky);background:var(--night-3)}
 .contact .email{color:var(--on-night);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:6px;text-decoration-color:var(--line-night)}
 .contact .email:hover{text-decoration-color:var(--sky)}
+
+/* ===== héros « Orbite » : maquettes 3D autour du nom, pilotées par le défilement (assets/js/orbit.js) =====
+   Actif seulement si <head> a posé .orbit (WebGL 2 disponible) ET si l'écran est assez haut et sans « réduire les animations ».
+   Sinon, ou sans JS, ou en cas d'échec : le héros classique ci-dessus. */
+.orbit-canvas,.orbit-hint{display:none}
+@media (min-height:560px) and (prefers-reduced-motion:no-preference){
+  html.js.orbit .orbit{height:290vh;background:var(--night)}
+  html.js.orbit .orbit > .hero{position:sticky;top:var(--bar-h);height:calc(100svh - var(--bar-h));display:grid;align-items:center;padding-block:20px}
+  html.js.orbit .hero-grid{position:relative;z-index:1;grid-template-columns:minmax(0,1fr);justify-items:center;text-align:center}
+  html.js.orbit .hero-txt{display:flex;flex-direction:column;align-items:center;max-width:46em;opacity:var(--txt-o,1);transform:scale(var(--txt-s,1))}
+  html.js.orbit .status{justify-content:center;max-width:36em}
+  html.js.orbit .id{justify-content:center}
+  html.js.orbit .hero h1{font-size:clamp(48px,8vw,128px)}
+  html.js.orbit .headline{margin-inline:auto}
+  html.js.orbit .lede{display:none}
+  html.js.orbit .ctas{justify-content:center}
+  html.js.orbit .xview.hero-fig{position:absolute;inset:0;margin:auto;z-index:0;max-height:76%;opacity:.16;transition:opacity .6s var(--ease-out)}
+  html.js.orbit.orbit-ready .xview.hero-fig{opacity:0}
+  html.js.orbit .orbit-canvas{display:block;position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:0;transition:opacity .8s var(--ease-out)}
+  html.js.orbit.orbit-ready .orbit-canvas{opacity:1}
+  html.js.orbit .orbit-hint{display:block;position:absolute;left:0;right:0;bottom:18px;z-index:1;margin:0;text-align:center;font-size:13.5px;color:var(--on-night-2);opacity:calc(var(--txt-o,1) * .9)}
+}
+@media print{.orbit{height:auto!important}.orbit > .hero{position:static!important;height:auto!important}.orbit-canvas,.orbit-hint{display:none!important}}

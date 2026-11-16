@@ -4,6 +4,25 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <script>document.documentElement.classList.add('js');document.addEventListener('DOMContentLoaded',function(){if(!document.querySelector('[data-view].on'))document.documentElement.classList.remove('js')})</script>
+<script>
+/* Héros « Orbite » : décidé ici, avant la mise en page, pour que route() voie la bonne hauteur.
+   orbit.js doit se signaler (window.kfOrbitAlive) ; sinon, ou en cas d'échec, kfOrbitFail() remet le héros classique. */
+(function(){var d=document.documentElement;try{
+var force=location.search.indexOf('orbit=force')>-1;
+if(!force&&sessionStorage.getItem('kf-orbit-fail'))return;
+var c=document.createElement('canvas'),g=c.getContext('webgl2',force?{}:{failIfMajorPerformanceCaveat:true});
+if(!g)return;var lose=g.getExtension('WEBGL_lose_context');if(lose)lose.loseContext();
+d.classList.add('orbit');
+window.kfOrbitFail=function(){
+  if(!d.classList.contains('orbit'))return;
+  var mark=document.getElementById('projets'),seen=mark&&mark.offsetParent!==null,y0=seen?mark.getBoundingClientRect().top:0;
+  d.classList.remove('orbit','orbit-ready');
+  try{sessionStorage.setItem('kf-orbit-fail','1')}catch(e){}
+  if(seen){if(y0>innerHeight){scrollTo(0,0)}else{scrollBy(0,mark.getBoundingClientRect().top-y0)}}
+};
+setTimeout(function(){if(!window.kfOrbitAlive)window.kfOrbitFail()},6000);
+}catch(e){d.classList.remove('orbit')}})();
+</script>
 <title>Ken Flores, étudiant-ingénieur Arts et Métiers</title>
 <meta name="description" content="Ken Flores, étudiant-ingénieur Arts et Métiers à l'ECAM LaSalle Lyon (promotion 2027) : conception mécanique, qualité et industrie du futur, avec un semestre d'ingénierie aérospatiale au Politecnico di Milano.">
 <meta name="author" content="Ken Flores">
@@ -27,6 +46,7 @@
 </script>
 <link rel="stylesheet" href="assets/css/site.css">
 <script src="assets/js/site.js" defer onerror="document.documentElement.classList.remove('js')"></script>
+<script type="module" src="assets/js/orbit.js"></script>
 </head>
 <body>
 <!--
@@ -52,7 +72,9 @@
 
 <main id="top" tabindex="-1">
   <div id="accueil" data-view data-title="">
+  <div class="orbit" data-orbit>
   <section class="hero" aria-labelledby="nom">
+    <canvas class="orbit-canvas" aria-hidden="true"></canvas>
     <div class="wrap hero-grid">
       <div class="hero-txt">
         <p class="status"><span class="status-k">Prochaine étape</span><span>En février 2027, je rejoins Safran Electronics &amp; Defense à Fougères pour mon stage de fin d’études. <a class="more" href="#parcours">Voir mon parcours</a></span></p>
@@ -108,25 +130,9 @@
       </g>
       </svg>
     </div>
+    <p class="orbit-hint" aria-hidden="true">Faites défiler</p>
   </section>
-
-  <section class="sec" id="profil" aria-labelledby="profil-t">
-    <div class="wrap profile">
-      <div>
-        <h2 class="h2" id="profil-t">Qui je suis</h2>
-        <p class="statement">Un parcours construit par le terrain : bac pro, BTS, prépa ATS, puis école d’ingénieurs.</p>
-      </div>
-      <div class="bio">
-        <p>Je suis en dernière année d’école d’ingénieurs généraliste à l’ECAM LaSalle Lyon, dans la formation Arts et Métiers (promotion 2027). J’ai travaillé en bureau d’études chez Expleo sur des cabines de téléphérique, en contrôle qualité chez Stryker, et je mène depuis 2022 ma propre micro-entreprise de conception mécanique.</p>
-        <p>En 2026, j’ai passé un semestre au Politecnico di Milano en ingénierie aérospatiale, et j’y ai rejoint l’association spatiale PoliSpace. Ce qui m’intéresse, c’est le point de rencontre entre trois métiers :</p>
-        <dl class="hats">
-          <div><dt>Concevoir</dt><dd>Modéliser, dimensionner, mettre en plan. Siemens NX et Teamcenter chez Expleo, Fusion 360 pour la Formula Student, SolidWorks et Abaqus en projet.</dd></div>
-          <div><dt>Vérifier</dt><dd>Une exigence ne vaut que si l’on sait la vérifier. Métrologie et plan de contrôle chez Stryker, chaînes de cotes, marges de résistance.</dd></div>
-          <div><dt>Organiser</dt><dd>Produire une pièce de façon efficace. Spécialité Usine du Futur, Lean, supply chain, certification CSCA en préparation.</dd></div>
-        </dl>
-      </div>
-    </div>
-  </section>
+  </div>
 
   <section id="projets" class="projects" aria-labelledby="projets-t">
     <div class="wrap">
@@ -178,6 +184,26 @@
         </div>
       </div>
   </section>
+
+  <section class="sec" id="profil" aria-labelledby="profil-t">
+    <div class="wrap profile">
+      <div>
+        <h2 class="h2" id="profil-t">Qui je suis</h2>
+        <p class="statement">Un parcours construit par le terrain : bac pro, BTS, prépa ATS, puis école d’ingénieurs.</p>
+      </div>
+      <div class="bio">
+        <p>Je suis en dernière année d’école d’ingénieurs généraliste à l’ECAM LaSalle Lyon, dans la formation Arts et Métiers (promotion 2027). J’ai travaillé en bureau d’études chez Expleo sur des cabines de téléphérique, en contrôle qualité chez Stryker, et je mène depuis 2022 ma propre micro-entreprise de conception mécanique.</p>
+        <p>En 2026, j’ai passé un semestre au Politecnico di Milano en ingénierie aérospatiale, et j’y ai rejoint l’association spatiale PoliSpace. Ce qui m’intéresse, c’est le point de rencontre entre trois métiers :</p>
+        <dl class="hats">
+          <div><dt>Concevoir</dt><dd>Modéliser, dimensionner, mettre en plan. Siemens NX et Teamcenter chez Expleo, Fusion 360 pour la Formula Student, SolidWorks et Abaqus en projet.</dd></div>
+          <div><dt>Vérifier</dt><dd>Une exigence ne vaut que si l’on sait la vérifier. Métrologie et plan de contrôle chez Stryker, chaînes de cotes, marges de résistance.</dd></div>
+          <div><dt>Organiser</dt><dd>Produire une pièce de façon efficace. Spécialité Usine du Futur, Lean, supply chain, certification CSCA en préparation.</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+
 
 
   <section class="sec alt" id="cap" aria-labelledby="cap-t">
