@@ -17,7 +17,7 @@ if (root.classList.contains('orbit') && orbitEl && home) {
     let done = false;
     const timer = setTimeout(() => { if (!done) { done = true; fail('import trop long', false); } }, 10000);
     import('./vendor/three.module.min.js')
-      .then((THREE) => { if (done) return; done = true; clearTimeout(timer); if (root.classList.contains('orbit')) build(THREE); })
+      .then((THREE) => { if (done) return; done = true; clearTimeout(timer); if (root.classList.contains('orbit')) { try { build(THREE); } catch (e) { fail(e); } } })
       .catch((e) => { if (done) return; done = true; clearTimeout(timer); fail(e); });
   };
   /* Three.js n'est chargé que si l'Accueil est affiché ET que l'écran permet l'orbite (hauteur, pas de « réduire les animations ») */
@@ -322,9 +322,9 @@ function build(THREE) {
   const onMq = () => {
     active = mq.matches;
     if (!active) rest();
-    if (home.classList.contains('on') && lastMark !== null && lastMark <= innerHeight) {
-      const dy = projets.getBoundingClientRect().top - lastMark;
-      if (Math.abs(dy) > 2) scrollBy(0, dy);
+    if (home.classList.contains('on') && lastMark !== null) {
+      if (lastMark <= innerHeight) { const dy = projets.getBoundingClientRect().top - lastMark; if (Math.abs(dy) > 2) scrollBy(0, dy); }
+      else if (!active) scrollTo(0, 0);
     }
     W = H = 0; dirty = true; ask();
   };

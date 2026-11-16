@@ -44,7 +44,7 @@
       try { id = decodeURIComponent(location.hash.slice(1)); } catch(err){}
       var target = id ? document.getElementById(id) : null;
       var view = target ? target.closest('[data-view]') : null;
-      var st = history.state || {}, y = typeof st.y === 'number' && (st.o === undefined || st.o === layout()) ? st.y : null;
+      var st = history.state || {}, y = typeof st.y === 'number' && (st.v !== 'accueil' || st.o === undefined || st.o === layout()) ? st.y : null;
       var saved = st.v ? document.getElementById(st.v) : null;
       if(target && !view){
         /* #contact, #top : on reste sur la vue d'où l'on vient */
